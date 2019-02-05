@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://developer.mozilla.org/fr/docs/Web/HTML -->
+<html lang="fr" dir="ltr" class=""><head prefix="og: http://ogp.me/ns#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <script async="" src="./HTML (HyperText Markup Language) _ MDN_files/analytics.js.téléchargement"></script><script>(function(d) { d.className = d.className.replace(/\bno-js/, ''); })(document.documentElement);</script>
+  <title>HTML (HyperText Markup Language) | MDN</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+
+  
+<link rel="preload" href="https://developer.mozilla.org/static/fonts/locales/ZillaSlab-Regular.subset.bbc33fb47cf6.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="home" href="https://developer.mozilla.org/fr/">
+    <link rel="license" href="https://developer.mozilla.org/fr/docs/Web/HTML#license">
+  
+
+  
+    
+    
+
+    <link href="./HTML (HyperText Markup Language) _ MDN_files/mdn.c89321bb4ae7.css" rel="stylesheet" type="text/css">
+
+    
+  
+
+    <link href="./HTML (HyperText Markup Language) _ MDN_files/wiki.973cb9ac57b0.css" rel="stylesheet" type="text/css">
+
+
+    
+
+  <link href="./HTML (HyperText Markup Language) _ MDN_files/locale-fr.520ecdcaef8c.css" rel="stylesheet" type="text/css">
+
+  
+    <script>
+    // Mozilla DNT Helper
+    /* This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/. */ if(typeof Mozilla==='undefined'){var Mozilla={}}Mozilla.dntEnabled=function(dnt,ua){'use strict';var dntStatus=dnt||navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack;var userAgent=ua||navigator.userAgent;var anomalousWinVersions=['Windows NT 6.1','Windows NT 6.2','Windows NT 6.3'];var fxMatch=userAgent.match(/Firefox\/(\d+)/);var ieRegEx=/MSIE|Trident/i;var isIE=ieRegEx.test(userAgent);var platform=userAgent.match(/Windows.+?(?=;)/g);if(isIE&&typeof Array.prototype.indexOf!=='function'){return false}else if(fxMatch&&parseInt(fxMatch[1],10)<32){dntStatus='Unspecified'}else if(isIE&&platform&&anomalousWinVersions.indexOf(platform.toString())!==-1){dntStatus='Unspecified'}else{dntStatus={'0':'Disabled','1':'Enabled'}[dntStatus]||'Unspecified'}return dntStatus==='Enabled'?true:false};
+    // only load GA if DNT is not enabled
+    if (Mozilla && !Mozilla.dntEnabled()) {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-36116321-5', 'mozilla.org');
+        ga('set', 'anonymizeIp', true);
+
+        
+
+        // dimension9 == "Section editing"
+        
+            // dimension12 == 'Page Revision'
+            ga('set', 'dimension12', '1445618');
+            // dimension17 == 'English Slug'
+            ga('set', 'dimension17', 'Web/HTML');
+
+        (function() {
+            // http://cfsimplicity.com/61/removing-analytics-clutter-from-campaign-urls
+            var win = window;
+            var removeUtms = function(){
+                var location = win.location;
+                if (location.href.indexOf('utm') != -1 && win.history.replaceState) {
+                    win.history.replaceState({}, '', location.pathname);
+                }
+            };
+
+            ga('send', 'pageview', {'hitCallback': removeUtms});
+        })();
+    }
+</script>
+  
+
+  
+    <script>
+    // util for setting performance marks and mesaures
+    var mdn=window.mdn||{};mdn.perf={getDuration:function(e){"use strict";if(void 0!==performance.getEntriesByName)return performance.getEntriesByName(e)[0].duration;console.error("performance.getEntriesByName is not supported by your user-agent")},setMark:function(e){"use strict";if(void 0!==performance.mark)try{performance.mark(e)}catch(e){console.error("Error while setting performance mark: ",e)}else console.error("performance.mark is not supported by your user-agent")},setMeasure:function(e){"use strict";void 0!==performance.measure?performance.measure(e.measureName,e.startMark,e.endMark):console.error("performance.measure is not supported by your user-agent")}};
+    /* util specifically for postMessages sent from the
+       `head` of the interactive examples iframe */
+    function handlePerfMarks(e){e.measureName?(window.mdn.perf.setMark(e.markName),window.mdn.perf.setMeasure({measureName:e.measureName,startMark:e.startMark,endMark:e.endMark}),ga&&ga.create&&ga("send",{hitType:"timing",timingCategory:"RUM - Interactive Examples",timingVar:e.measureName,timingValue:window.mdn.perf.getDuration(e.measureName)||0})):window.mdn.perf.setMark(e.markName)}function perfMsgHandler(e){"use strict";var a=window.mdn.interactiveEditor.editorUrl||"https://interactive-examples.mdn.mozilla.net",r=e.data;if(e.origin!==a)return!1;r.markName&&-1<r.markName.indexOf("interactive-editor-")&&handlePerfMarks(r)}window.addEventListener("message",perfMsgHandler,!1);
+</script>
+
+    <!-- common social tags -->
+    
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://developer.mozilla.org/static/img/opengraph-logo.72382e605ce3.png">
+    <meta property="og:site_name" content="Documentation du Web - MDN">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://developer.mozilla.org/static/img/opengraph-logo.72382e605ce3.png">
+    <meta name="twitter:site" content="@MozDevNet">
+    <meta name="twitter:creator" content="@MozDevNet">
+    <link rel="search" type="application/opensearchdescription+xml" href="https://developer.mozilla.org/fr/search/xml" title="Documentation du Web - MDN">
+    
+  
+  <!-- third-generation iPad with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://developer.mozilla.org/static/img/favicon144.e7e21ca263ca.png">
+  <!-- iPhone with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://developer.mozilla.org/static/img/favicon114.d526f38b09c5.png">
+  <!-- first- and second-generation iPad: -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://developer.mozilla.org/static/img/favicon72.cc65d1d762a0.png">
+  <!-- non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <link rel="apple-touch-icon-precomposed" href="https://developer.mozilla.org/static/img/favicon57.de33179910ae.png">
+  <!-- basic favicon -->
+  <link rel="shortcut icon" href="https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png">
+  <!--[if IE]>
+  <meta http-equiv="imagetoolbar" content="no">
+  <script type="text/javascript" src="https://developer.mozilla.org/static/build/js/html5shiv.ae1ac46eaf58.js" charset="utf-8"></script>
+  <![endif]-->
+
+  
+  <link rel="dns-prefetch" href="https://interactive-examples.mdn.mozilla.net/" pr="0.75">
+  <link rel="preconnect" href="https://interactive-examples.mdn.mozilla.net/" pr="0.75">
+
+  <link rel="alternate" type="application/json" href="https://developer.mozilla.org/fr/docs/Web/HTML$json">
+  <link rel="canonical" href="https://developer.mozilla.org/fr/docs/Web/HTML">
+
+  
+  <link rel="alternate" hreflang="fr" href="https://developer.mozilla.org/fr/docs/Web/HTML" title="HTML (HyperText Markup Language)">
+  
+    
+      <link rel="alternate" hreflang="en-US" href="https://developer.mozilla.org/en-US/docs/Web/HTML" title="HTML: HyperText Markup Language">
+    
+      <link rel="alternate" hreflang="ar" href="https://developer.mozilla.org/ar/docs/Web/HTML_%D9%84%D8%BA%D8%A9_%D8%AA%D8%B1%D9%85%D9%8A%D8%B2_%D8%A7%D9%84%D9%86%D8%B5_%D8%A7%D9%84%D9%81%D8%A7%D8%A6%D9%82" title="HTML (لغة ترميز النص الفائق)">
+    
+      <link rel="alternate" hreflang="az" href="https://developer.mozilla.org/az/docs/Web/HTML" title="HTML (hiper-mətn nişanlama dili)">
+    
+      <link rel="alternate" hreflang="bg" href="https://developer.mozilla.org/bg/docs/Web/HTML" title="HTML">
+    
+      <link rel="alternate" hreflang="bn-BD" href="https://developer.mozilla.org/bn-BD/docs/Web/HTML" title="HTML( হাইপার টেক্সট মার্কআপ ল্যাঙ্গুয়েজ )">
+    
+      <link rel="alternate" hreflang="bn-IN" href="https://developer.mozilla.org/bn-IN/docs/Web/HTML" title="HTML: HyperText Markup Language">
+    
+      <link rel="alternate" hreflang="ca" href="https://developer.mozilla.org/ca/docs/Web/HTML" title="HTML (HyperText Markup Language)">
+    
+      <link rel="alternate" hreflang="cs" href="https://developer.mozilla.org/cs/docs/Web/HTML" title="HTML">
+    
+      <link rel="alternate" hreflang="de" href="https://developer.mozilla.org/de/docs/Web/HTML" title="HTML: HyperText Markup Language">
+    
+      <link rel="alternate" hreflang="es" href="https://developer.mozilla.org/es/docs/Web/HTML" title="HTML">
+    
+      <link rel="alternate" hreflang="fa" href="https://developer.mozilla.org/fa/docs/Web/HTML" title="HTML">
+    
+      <link rel="alternate" hreflang="fi" href="https://developer.mozilla.org/fi/docs/Web/HTML" title="HTML: HyperText Markup Language">
+    
+      <link rel="alternate" hreflang="he" href="https://developer.mozilla.org/he/docs/Web/Hypertext_Markup_Language" title="Hypertext Markup Language">
+    
+      <link rel="alternate" hreflang="hi-IN" href="https://developer.mozilla.org/hi-IN/docs/Web/HTML" title="एचटीएमल (हाइपर टेक्स्ट मार्कअप लेंगुएज)">
+    
+      <link rel="alternate" hreflang="hr" href="https://developer.mozilla.org/hr/docs/Web/HTML" title="HTML (HyperText Markup Language)">
+    
+      <link rel="alternate" hreflang="id" href="https://developer.mozilla.org/id/docs/Web/HTML" title="HTML">
+    
+      <link rel="alternate" hreflang="it" href="https://developer.mozilla.org/it/docs/Web/HTML" title="HTML">
+    
+      <link rel="alternate" hreflang="ja" href="https://developer.mozilla.org/ja/docs/Web/HTML" title="HTML: HyperText Markup Language">
+    
+      <link rel="alternate" hreflang="ka" href="https://developer.mozilla.org/ka/docs/Web/HTML" title="HTML (HyperText Markup Language)">
+    
+      <link rel="alternate" hreflang="kab" href="https://developer.mozilla.org/kab/docs/Web/HTML" title="HTML">
+    
+      <link rel="alternate" hreflang="ko" href="https://developer.mozilla.org/ko/docs/Web/HTML" title="HTML">
+    
+      <link rel="alternate" hreflang="ml" href="https://developer.mozilla.org/ml/docs/Web/HTML" title="HTML (HyperText Markup Language)">
+    
+      <link rel="alternate" hreflang="ms" href="https://developer.mozilla.org/ms/docs/Web/HTML" title="HTML">
+    
+      <link rel="alternate" hreflang="my" href="https://developer.mozilla.org/my/docs/Web/HTML" title="HTML">
+    
+      <link rel="alternate" hreflang="nl" href="https://developer.mozilla.org/nl/docs/Web/HTML" title="HTML">
+    
+      <link rel="alternate" hreflang="pl" href="https://developer.mozilla.org/pl/docs/Web/HTML(PL)" title="HTML: Hipertekstowy Język Znaczników">
+    
+      <link rel="alternate" hreflang="pt-BR" href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" title="HTML">
+    
+      <link rel="alternate" hreflang="pt-PT" href="https://developer.mozilla.org/pt-PT/docs/Web/HTML" title="HTML: Linguagem de Marcação de Hipertexto">
+    
+      <link rel="alternate" hreflang="ro" href="https://developer.mozilla.org/ro/docs/Web/HTML" title="HTML (HyperText Markup Language)">
+    
+      <link rel="alternate" hreflang="ru" href="https://developer.mozilla.org/ru/docs/Web/HTML" title="HTML">
+    
+      <link rel="alternate" hreflang="sq" href="https://developer.mozilla.org/sq/docs/Web/HTML" title="HTML (Gjuha Markup)">
+    
+      <link rel="alternate" hreflang="sr" href="https://developer.mozilla.org/sr/docs/Web/HTML" title="HTML">
+    
+      <link rel="alternate" hreflang="sv-SE" href="https://developer.mozilla.org/sv-SE/docs/Web/HTML" title="HTML">
+    
+      <link rel="alternate" hreflang="ta" href="https://developer.mozilla.org/ta/docs/Web/HTML" title="மீயுரைக் குறியிடு மொழி">
+    
+      <link rel="alternate" hreflang="th" href="https://developer.mozilla.org/th/docs/Web/HTML" title="HTML (HyperText Markup Language)">
+    
+      <link rel="alternate" hreflang="uk" href="https://developer.mozilla.org/uk/docs/Web/HTML" title="HTML">
+    
+      <link rel="alternate" hreflang="vi" href="https://developer.mozilla.org/vi/docs/Web/HTML_vi" title="HTML">
+    
+      <link rel="alternate" hreflang="zh-CN" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML" title="HTML（超文本标记语言）">
+    
+      <link rel="alternate" hreflang="zh-TW" href="https://developer.mozilla.org/zh-TW/docs/Web/HTML" title="HTML">
+    
+  
+
+  <!-- document-specific social tags -->
+  <meta property="og:title" content="HTML (HyperText Markup Language)">
+  <meta property="og:url" content="https://developer.mozilla.org/fr/docs/Web/HTML">
+  <meta name="twitter:url" content="https://developer.mozilla.org/fr/docs/Web/HTML">
+  <meta name="twitter:title" content="HTML (HyperText Markup Language)">
+  
+  <meta property="og:description" content="HTML permet d&#39;inclure des images et d&#39;autres contenus dans les pages web. Grâce à HTML, chacun peut créer des sites web aussi bien statiques que dynamiques. HTML est le langage qui permet de décrire la structure et le contenu d&#39;un document web. Ce contenu est balisé par des éléments HTML comme head, title, body, header, footer, article, section, p, div, span, img et bien d&#39;autres encore. Ces éléments forment les blocs utilisés pour construire un site web.">
+  <meta name="description" content="HTML permet d&#39;inclure des images et d&#39;autres contenus dans les pages web. Grâce à HTML, chacun peut créer des sites web aussi bien statiques que dynamiques. HTML est le langage qui permet de décrire la structure et le contenu d&#39;un document web. Ce contenu est balisé par des éléments HTML comme head, title, body, header, footer, article, section, p, div, span, img et bien d&#39;autres encore. Ces éléments forment les blocs utilisés pour construire un site web.">
+  <meta name="twitter:description" content="HTML permet d&#39;inclure des images et d&#39;autres contenus dans les pages web. Grâce à HTML, chacun peut créer des sites web aussi bien statiques que dynamiques. HTML est le langage qui permet de décrire la structure et le contenu d&#39;un document web. Ce contenu est balisé par des éléments HTML comme head, title, body, header, footer, article, section, p, div, span, img et bien d&#39;autres encore. Ces éléments forment les blocs utilisés pour construire un site web.">
+  
+
+</head>
+<body data-slug="Web/HTML" contextmenu="edit-history-menu" data-search-url="" class="document">
+
+  <script>
+    // make sure global mdn object exists
+    var mdn = window.mdn || {};
+
+    (function(win) {
+        'use strict';
+
+        (function(){
+  var FLAGS = {
+    'kumaediting': false,'page_move': false,'section_edit': false,'spam_checks_enabled': true,'spam_submissions_enabled': false,'spam_admin_override': false,'spam_spammer_override': false,'spam_testing_mode': false,'sg_task_completion': false,'contrib_beta': false,'recurring_payment_beta': true
+    },
+    SWITCHES = {
+    'welcome_email': true,'application_ACAO': true,'store_revision_ips': true,'foundation_callout': false,'helpful-survey-2': true,'wiki_spam_training': true,'registration_disabled': false
+    },
+    SAMPLES = {
+    
+    };
+  window.waffle = {
+    "flag_is_active": function waffle_flag(flag_name) {
+      
+      return !!FLAGS[flag_name];
+    },
+    "switch_is_active": function waffle_switch(switch_name) {
+      
+      return !!SWITCHES[switch_name];
+    },
+    "sample_is_active": function waffle_sample(sample_name) {
+      
+      return !!SAMPLES[sample_name];
+    },
+    "FLAGS": FLAGS,
+    "SWITCHES": SWITCHES,
+    "SAMPLES": SAMPLES
+  };
+})();
+
+
+        // This needs to be set before ckeditor.js loads
+        window.CKEDITOR_BASEPATH = '/static/js/libs/ckeditor/build/ckeditor/';
+
+        // Site configuration
+        win.mdn.ckeditor = {};
+        win.mdn.features = {};
+        win.mdn.siteUrl = '';
+        win.mdn.staticPath = 'https://developer.mozilla.org/static/';
+        win.mdn.wiki = {
+            autosuggestTitleUrl: '/fr/docs/get-documents'
+        };
+        win.mdn.assets = {
+            css: {
+                'editor-content': ['https://developer.mozilla.org/static/build/styles/editor-content.fb3ac67bc6c4.css','https://developer.mozilla.org/static/build/styles/editor-locale-fr.520ecdcaef8c.css',
+                ],
+
+                'wiki-compat-tables': ['https://developer.mozilla.org/static/build/styles/wiki-compat-tables.5f0189653d77.css',]
+            },
+            js: {
+                'syntax-prism': ['https://developer.mozilla.org/static/build/js/syntax-prism.c3ad62e11c30.js',],
+                'wiki-compat-tables': ['https://developer.mozilla.org/static/build/js/wiki-compat-tables.3a4ab2cc8ca1.js',],
+                'wiki-compat-table-survey': ['https://developer.mozilla.org/static/build/js/wiki-compat-table-survey.757217c07ae6.js',]
+            }
+        };
+
+        win.mdn.notifications = [];
+        win.mdn.contributions = {
+            enabled: true,
+            popup: false
+        };
+
+        
+
+        // interactive editor config
+        win.mdn.interactiveEditor = {
+            siteUrl: "https://developer.mozilla.org",
+            editorUrl: "https://interactive-examples.mdn.mozilla.net"
+        };
+        win.mdn.langCookieName = "django_language";
+
+    })(this);
+</script>
+    
+    <ul id="nav-access">
+  <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML#content" id="skip-main">Aller au contenu principal</a></li>
+  <li><a id="skip-language" href="https://developer.mozilla.org/fr/docs/Web/HTML#language">Choisir la langue</a></li>
+  <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML#q" id="skip-search">Aller à la recherche</a></li>
+</ul>
+
+    <!-- Header -->
+    <header id="main-header" class="header-main">
+      <a href="https://developer.mozilla.org/fr/" class="logo">Documentation du Web - MDN</a>
+      <div class="nav-toolbox-wrapper">
+        <nav id="main-nav" class="nav-main" role="navigation">
+    <ul>
+        <li class="nav-main-item">
+            <a href="https://developer.mozilla.org/fr/docs/Web">Technologies
+                <svg class="icon icon-caret-down" xmlns="http://www.w3.org/2000/svg" width="16" height="28" viewBox="0 0 16 28"><path d="M16 11a.99.99 0 0 1-.297.703l-7 7C8.516 18.89 8.265 19 8 19s-.516-.109-.703-.297l-7-7A.996.996 0 0 1 0 11c0-.547.453-1 1-1h14c.547 0 1 .453 1 1z"></path></svg>
+            </a>
+            <div class="submenu js-submenu" id="nav-tech-submenu" aria-hidden="true" style="z-index: 99998;"><button type="button" class="submenu-close transparent"><span class="offscreen">Fermer le sous-menu</span><svg class="icon icon-close" version="1.1" width="24" height="28" viewBox="0 0 24 28" aria-hidden="true" focusable="false"><path d="M20.281 20.656c0 0.391-0.156 0.781-0.438 1.062l-2.125 2.125c-0.281 0.281-0.672 0.438-1.062 0.438s-0.781-0.156-1.062-0.438l-4.594-4.594-4.594 4.594c-0.281 0.281-0.672 0.438-1.062 0.438s-0.781-0.156-1.062-0.438l-2.125-2.125c-0.281-0.281-0.438-0.672-0.438-1.062s0.156-0.781 0.438-1.062l4.594-4.594-4.594-4.594c-0.281-0.281-0.438-0.672-0.438-1.062s0.156-0.781 0.438-1.062l2.125-2.125c0.281-0.281 0.672-0.438 1.062-0.438s0.781 0.156 1.062 0.438l4.594 4.594 4.594-4.594c0.281-0.281 0.672-0.438 1.062-0.438s0.781 0.156 1.062 0.438l2.125 2.125c0.281 0.281 0.438 0.672 0.438 1.062s-0.156 0.781-0.438 1.062l-4.594 4.594 4.594 4.594c0.281 0.281 0.438 0.672 0.438 1.062z"></path></svg></button>
+                <div class="submenu-column">
+                  <ul>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML">HTML</a></li>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Web/CSS">CSS</a></li>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript">JavaScript</a></li>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Web/Guide/Graphics">Infographies</a></li>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Web/HTTP">HTTP</a></li>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Web/API">APIs / DOM</a></li>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Mozilla/Add-ons/WebExtensions">Extensions des navigateurs</a></li>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Web/MathML">MathML</a></li>
+                  </ul>
+                </div>
+            </div>
+        </li>
+        <li class="nav-main-item">
+            <a href="https://developer.mozilla.org/fr/docs/Learn">Guides et références
+                <svg class="icon icon-caret-down" xmlns="http://www.w3.org/2000/svg" width="16" height="28" viewBox="0 0 16 28"><path d="M16 11a.99.99 0 0 1-.297.703l-7 7C8.516 18.89 8.265 19 8 19s-.516-.109-.703-.297l-7-7A.996.996 0 0 1 0 11c0-.547.453-1 1-1h14c.547 0 1 .453 1 1z"></path></svg>
+            </a>
+            <div class="submenu js-submenu" id="nav-learn-submenu" aria-hidden="true" style="z-index: 99998;"><button type="button" class="submenu-close transparent"><span class="offscreen">Fermer le sous-menu</span><svg class="icon icon-close" version="1.1" width="24" height="28" viewBox="0 0 24 28" aria-hidden="true" focusable="false"><path d="M20.281 20.656c0 0.391-0.156 0.781-0.438 1.062l-2.125 2.125c-0.281 0.281-0.672 0.438-1.062 0.438s-0.781-0.156-1.062-0.438l-4.594-4.594-4.594 4.594c-0.281 0.281-0.672 0.438-1.062 0.438s-0.781-0.156-1.062-0.438l-2.125-2.125c-0.281-0.281-0.438-0.672-0.438-1.062s0.156-0.781 0.438-1.062l4.594-4.594-4.594-4.594c-0.281-0.281-0.438-0.672-0.438-1.062s0.156-0.781 0.438-1.062l2.125-2.125c0.281-0.281 0.672-0.438 1.062-0.438s0.781 0.156 1.062 0.438l4.594 4.594 4.594-4.594c0.281-0.281 0.672-0.438 1.062-0.438s0.781 0.156 1.062 0.438l2.125 2.125c0.281 0.281 0.438 0.672 0.438 1.062s-0.156 0.781-0.438 1.062l-4.594 4.594 4.594 4.594c0.281 0.281 0.438 0.672 0.438 1.062z"></path></svg></button>
+                <div class="submenu-column">
+                  <ul>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Learn">Apprendre le développement web</a></li>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Web/Tutorials">Tutoriels</a></li>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Web/Reference">Références</a></li>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Web/Guide">Guides pour développeurs</a></li>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Web/Accessibility">Accessibilité</a></li>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Games">Développement de jeux</a></li>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Web">... plus de docs</a></li>
+                  </ul>
+                </div>
+            </div>
+        </li>
+        <li class="nav-main-item">
+            <a href="https://developer.mozilla.org/fr/docs/MDN/Feedback">Votre avis
+                <svg class="icon icon-caret-down" xmlns="http://www.w3.org/2000/svg" width="16" height="28" viewBox="0 0 16 28"><path d="M16 11a.99.99 0 0 1-.297.703l-7 7C8.516 18.89 8.265 19 8 19s-.516-.109-.703-.297l-7-7A.996.996 0 0 1 0 11c0-.547.453-1 1-1h14c.547 0 1 .453 1 1z"></path></svg>
+            </a>
+            <div class="submenu js-submenu" id="nav-contact-submenu">
+              <div class="submenu-column">
+                <ul>
+                  <li>
+                      <a href="https://support.mozilla.org/">Demander de l'aide pour Firefox
+                          <svg class="icon icon-external-link" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M22 14.5v5c0 2.484-2.016 4.5-4.5 4.5h-13A4.502 4.502 0 0 1 0 19.5v-13C0 4.016 2.016 2 4.5 2h11c.281 0 .5.219.5.5v1c0 .281-.219.5-.5.5h-11A2.507 2.507 0 0 0 2 6.5v13C2 20.875 3.125 22 4.5 22h13c1.375 0 2.5-1.125 2.5-2.5v-5c0-.281.219-.5.5-.5h1c.281 0 .5.219.5.5zM28 1v8c0 .547-.453 1-1 1a.99.99 0 0 1-.703-.297l-2.75-2.75L13.36 17.14c-.094.094-.234.156-.359.156s-.266-.063-.359-.156l-1.781-1.781c-.094-.094-.156-.234-.156-.359s.063-.266.156-.359L21.048 4.454l-2.75-2.75a.996.996 0 0 1-.297-.703c0-.547.453-1 1-1h8c.547 0 1 .453 1 1z"></path></svg>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="https://stackoverflow.com/">Demander de l'aide pour le développement web
+                          <svg class="icon icon-external-link" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M22 14.5v5c0 2.484-2.016 4.5-4.5 4.5h-13A4.502 4.502 0 0 1 0 19.5v-13C0 4.016 2.016 2 4.5 2h11c.281 0 .5.219.5.5v1c0 .281-.219.5-.5.5h-11A2.507 2.507 0 0 0 2 6.5v13C2 20.875 3.125 22 4.5 22h13c1.375 0 2.5-1.125 2.5-2.5v-5c0-.281.219-.5.5-.5h1c.281 0 .5.219.5.5zM28 1v8c0 .547-.453 1-1 1a.99.99 0 0 1-.703-.297l-2.75-2.75L13.36 17.14c-.094.094-.234.156-.359.156s-.266-.063-.359-.156l-1.781-1.781c-.094-.094-.156-.234-.156-.359s.063-.266.156-.359L21.048 4.454l-2.75-2.75a.996.996 0 0 1-.297-.703c0-.547.453-1 1-1h8c.547 0 1 .453 1 1z"></path></svg>
+                      </a>
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                      <a href="https://developer.mozilla.org/fr/docs/MDN/Community">Rejoignez la communauté MDN</a>
+                  </li>
+                  <li>
+                      <a target="_blank" rel="noopener" href="https://bugzilla.mozilla.org/form.doc?bug_file_loc=https%3A//developer.mozilla.org/fr/docs/Web/HTML">Signaler un problème de contenu
+                          <svg class="icon icon-external-link" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M22 14.5v5c0 2.484-2.016 4.5-4.5 4.5h-13A4.502 4.502 0 0 1 0 19.5v-13C0 4.016 2.016 2 4.5 2h11c.281 0 .5.219.5.5v1c0 .281-.219.5-.5.5h-11A2.507 2.507 0 0 0 2 6.5v13C2 20.875 3.125 22 4.5 22h13c1.375 0 2.5-1.125 2.5-2.5v-5c0-.281.219-.5.5-.5h1c.281 0 .5.219.5.5zM28 1v8c0 .547-.453 1-1 1a.99.99 0 0 1-.703-.297l-2.75-2.75L13.36 17.14c-.094.094-.234.156-.359.156s-.266-.063-.359-.156l-1.781-1.781c-.094-.094-.156-.234-.156-.359s.063-.266.156-.359L21.048 4.454l-2.75-2.75a.996.996 0 0 1-.297-.703c0-.547.453-1 1-1h8c.547 0 1 .453 1 1z"></path></svg>
+                      </a>
+                  </li>
+                  <li>
+                      <a target="_blank" rel="noopener" href="https://bugzilla.mozilla.org/form.mdn">Signaler un bug
+                          <svg class="icon icon-external-link" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M22 14.5v5c0 2.484-2.016 4.5-4.5 4.5h-13A4.502 4.502 0 0 1 0 19.5v-13C0 4.016 2.016 2 4.5 2h11c.281 0 .5.219.5.5v1c0 .281-.219.5-.5.5h-11A2.507 2.507 0 0 0 2 6.5v13C2 20.875 3.125 22 4.5 22h13c1.375 0 2.5-1.125 2.5-2.5v-5c0-.281.219-.5.5-.5h1c.281 0 .5.219.5.5zM28 1v8c0 .547-.453 1-1 1a.99.99 0 0 1-.703-.297l-2.75-2.75L13.36 17.14c-.094.094-.234.156-.359.156s-.266-.063-.359-.156l-1.781-1.781c-.094-.094-.156-.234-.156-.359s.063-.266.156-.359L21.048 4.454l-2.75-2.75a.996.996 0 0 1-.297-.703c0-.547.453-1 1-1h8c.547 0 1 .453 1 1z"></path></svg>
+                      </a>
+                  </li>
+                </ul>
+              </div>
+          </div>
+      </li>
+  </ul>
+</nav>
+        <div id="toolbox" class="toolbox">
+  <ul>
+    
+    <li class="nav-login"><div class="login">
+    
+        
+        <a href="https://developer.mozilla.org/users/github/login/?next=%2Ffr%2Fdocs%2FWeb%2FHTML" class="login-link js-login-link" data-service="GitHub" rel="nofollow">
+            Connexion<svg class="icon icon-github" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" aria-label="GitHub" role="img" focusable="false">
+    <title>Github</title>
+    <path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-.609.109-.828-.266-.828-.578 0-.391.016-1.687.016-3.297 0-1.125-.375-1.844-.812-2.219 2.672-.297 5.484-1.313 5.484-5.922 0-1.313-.469-2.375-1.234-3.219.125-.313.531-1.531-.125-3.187-1-.313-3.297 1.234-3.297 1.234a11.28 11.28 0 0 0-6 0S6.704 6.656 5.704 6.969c-.656 1.656-.25 2.875-.125 3.187-.766.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-.344.313-.656.844-.766 1.609-.688.313-2.438.844-3.484-1-.656-1.141-1.844-1.234-1.844-1.234-1.172-.016-.078.734-.078.734.781.359 1.328 1.75 1.328 1.75.703 2.141 4.047 1.422 4.047 1.422 0 1 .016 1.937.016 2.234 0 .313-.219.688-.828.578C3.439 23.796.002 19.296.002 13.999c0-6.625 5.375-12 12-12zM4.547 19.234c.031-.063-.016-.141-.109-.187-.094-.031-.172-.016-.203.031-.031.063.016.141.109.187.078.047.172.031.203-.031zm.484.532c.063-.047.047-.156-.031-.25-.078-.078-.187-.109-.25-.047-.063.047-.047.156.031.25.078.078.187.109.25.047zm.469.703c.078-.063.078-.187 0-.297-.063-.109-.187-.156-.266-.094-.078.047-.078.172 0 .281s.203.156.266.109zm.656.656c.063-.063.031-.203-.063-.297-.109-.109-.25-.125-.313-.047-.078.063-.047.203.063.297.109.109.25.125.313.047zm.891.391c.031-.094-.063-.203-.203-.25-.125-.031-.266.016-.297.109s.063.203.203.234c.125.047.266 0 .297-.094zm.984.078c0-.109-.125-.187-.266-.172-.141 0-.25.078-.25.172 0 .109.109.187.266.172.141 0 .25-.078.25-.172zm.906-.156c-.016-.094-.141-.156-.281-.141-.141.031-.234.125-.219.234.016.094.141.156.281.125s.234-.125.219-.219z"></path>
+</svg>
+        </a>
+    
+</div></li>
+  </ul>
+</div>
+      </div>
+      <form id="nav-main-search" action="https://developer.mozilla.org/fr/search" method="get" role="search" class="nav-main-search">
+  <div class="search-wrap">
+    <label for="main-q" class="offscreen">Rechercher</label>
+    <input type="search" id="main-q" name="q" placeholder="Rechercher" data-value="" value="" aria-hidden="true">
+    <span class="search-trigger">
+        <svg class="icon icon-search" xmlns="http://www.w3.org/2000/svg" width="26" height="28" viewBox="0 0 26 28" aria-hidden="true">
+    <path d="M18 13c0-3.859-3.141-7-7-7s-7 3.141-7 7 3.141 7 7 7 7-3.141 7-7zm8 13c0 1.094-.906 2-2 2a1.96 1.96 0 0 1-1.406-.594l-5.359-5.344a10.971 10.971 0 0 1-6.234 1.937c-6.078 0-11-4.922-11-11s4.922-11 11-11 11 4.922 11 11c0 2.219-.672 4.406-1.937 6.234l5.359 5.359c.359.359.578.875.578 1.406z"></path>
+</svg>
+    </span>
+    <button type="submit" class="offscreen">Rechercher</button>
+    <button type="button" id="close-header-search" class="close-header-search transparent">
+        <span class="offscreen">Fermer la recherche</span>
+        <svg class="icon icon-close" xmlns="http://www.w3.org/2000/svg" width="22" height="28" viewBox="0 0 22 28" aria-hidden="true"><path d="M20.281 20.656c0 .391-.156.781-.438 1.062l-2.125 2.125c-.281.281-.672.438-1.062.438s-.781-.156-1.062-.438L11 19.249l-4.594 4.594c-.281.281-.672.438-1.062.438s-.781-.156-1.062-.438l-2.125-2.125c-.281-.281-.438-.672-.438-1.062s.156-.781.438-1.062L6.751 15l-4.594-4.594c-.281-.281-.438-.672-.438-1.062s.156-.781.438-1.062l2.125-2.125c.281-.281.672-.438 1.062-.438s.781.156 1.062.438L11 10.751l4.594-4.594c.281-.281.672-.438 1.062-.438s.781.156 1.062.438l2.125 2.125c.281.281.438.672.438 1.062s-.156.781-.438 1.062L15.249 15l4.594 4.594c.281.281.438.672.438 1.062z"></path></svg>
+    </button>
+  </div>
+</form>
+    </header> 
+
+  <!-- Content will go here -->
+  <main id="content" role="main">
+      
+  <!-- heading -->
+  <div id="wiki-document-head" class="document-head">
+    <div class="center">
+      <div class="document-title">
+        <h1>HTML (Hyper<wbr>Text Markup Language)</h1>
+      </div>
+
+      <!-- action buttons -->
+      <div class="document-actions">
+        
+
+  
+    
+    
+  
+
+  
+    
+  
+
+  
+
+  <ul class="page-buttons">
+      <li>
+          <button id="languages-menu" class="transparent" aria-haspopup="true" aria-owns="languages-menu-submenu" aria-expanded="false">
+              <svg class="icon icon-language" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" aria-hidden="true">
+    <path d="M10.219 16.844c-.031.109-.797-.25-1-.328-.203-.094-1.125-.609-1.359-.766s-1.125-.891-1.234-.938a28.275 28.275 0 0 1-2.094 2.828c-.281.328-1.125 1.391-1.641 1.719-.078.047-.531.094-.594.063.25-.187.969-1.078 1.281-1.437.391-.453 2.25-3.047 2.562-3.641.328-.594 1.312-2.562 1.359-2.75-.156-.016-1.391.406-1.719.516-.313.094-1.172.297-1.234.344-.063.063-.016.25-.047.313s-.313.203-.484.234a1.647 1.647 0 0 1-.734 0c-.203-.047-.391-.25-.438-.328 0 0-.063-.094-.078-.359.187-.063.5-.078.844-.172s1.188-.344 1.641-.5 1.328-.484 1.594-.547c.281-.047.984-.516 1.359-.641s.641-.281.656-.203 0 .422-.016.516c-.016.078-.766 1.547-.875 1.781-.063.125-.5.953-1.203 2.047.25.109.781.328 1 .438.266.125 2.125.906 2.219.938s.266.75.234.875zM7.016 9.25c.047.266-.031.375-.063.438-.156.297-.547.5-.781.594s-.625.187-.938.187c-.141-.016-.422-.063-.766-.406-.187-.203-.328-.75-.266-.688s.516.125.719.078.688-.187.906-.25c.234-.078.703-.203.859-.219.156 0 .281.063.328.266zm10.906 2.016l.984 3.547-2.172-.656zM.609 23.766l10.844-3.625V4.016L.609 7.657v16.109zM20 18.813l1.594.484-2.828-10.266-1.563-.484-3.375 8.375 1.594.484.703-1.719 3.297 1.016zM12.141 3.781l8.953 2.875V.718zM17 24.453l2.469.203-.844 2.5L18 26.125c-1.266.812-2.828 1.437-4.312 1.687-.453.094-.969.187-1.422.187h-1.313c-1.656 0-4.672-.984-5.984-1.937-.094-.078-.125-.141-.125-.25 0-.172.125-.297.281-.297.141 0 .875.453 1.078.547 1.406.703 3.375 1.344 4.953 1.344 1.953 0 3.281-.25 5.063-1.016.516-.234.969-.531 1.453-.797zm7-16.859v16.859c-12.078-3.844-12.094-3.844-12.094-3.844C11.656 20.718.453 24.5.297 24.5a.3.3 0 0 1-.281-.203c0-.016-.016-.031-.016-.047V7.406c.016-.047.031-.125.063-.156.094-.109.219-.141.313-.172.047-.016 1-.328 2.328-.781v-6l8.719 3.094C11.532 3.36 21.251 0 21.392 0c.172 0 .313.125.313.328v6.531z"></path>
+</svg>
+              <span>Langues</span>
+          </button>
+
+        <div class="submenu js-submenu" id="languages-menu-submenu">
+          <div class="submenu-column">
+            <ul id="translations">
+              
+                
+                
+                
+                  <li lang="en-US"><bdi><a rel="internal" href="https://developer.mozilla.org/en-US/docs/Web/HTML" data-locale="en-US" title="Anglais américain">English (US) (en-US)</a></bdi></li>
+                
+                  <li lang="ar"><bdi><a rel="internal" href="https://developer.mozilla.org/ar/docs/Web/HTML_%D9%84%D8%BA%D8%A9_%D8%AA%D8%B1%D9%85%D9%8A%D8%B2_%D8%A7%D9%84%D9%86%D8%B5_%D8%A7%D9%84%D9%81%D8%A7%D8%A6%D9%82" data-locale="ar" title="Arabe">عربي (ar)</a></bdi></li>
+                
+                  <li lang="az"><bdi><a rel="internal" href="https://developer.mozilla.org/az/docs/Web/HTML" data-locale="az" title="Azéri">Azərbaycanca (az)</a></bdi></li>
+                
+                  <li lang="bg"><bdi><a rel="internal" href="https://developer.mozilla.org/bg/docs/Web/HTML" data-locale="bg" title="Bulgare">Български (bg)</a></bdi></li>
+                
+                  <li lang="bn-BD"><bdi><a rel="internal" href="https://developer.mozilla.org/bn-BD/docs/Web/HTML" data-locale="bn-BD" title="Bengali (du Bangladesh)">বাংলা (বাংলাদেশ) (bn-BD)</a></bdi></li>
+                
+                  <li lang="bn-IN"><bdi><a rel="internal" href="https://developer.mozilla.org/bn-IN/docs/Web/HTML" data-locale="bn-IN" title="Bengali (d&#39;Inde)">বাংলা (ভারত) (bn-IN)</a></bdi></li>
+                
+                  <li lang="ca"><bdi><a rel="internal" href="https://developer.mozilla.org/ca/docs/Web/HTML" data-locale="ca" title="Catalan">Català (ca)</a></bdi></li>
+                
+                  <li lang="cs"><bdi><a rel="internal" href="https://developer.mozilla.org/cs/docs/Web/HTML" data-locale="cs" title="Tchèque">Čeština (cs)</a></bdi></li>
+                
+                  <li lang="de"><bdi><a rel="internal" href="https://developer.mozilla.org/de/docs/Web/HTML" data-locale="de" title="Allemand">Deutsch (de)</a></bdi></li>
+                
+                  <li lang="es"><bdi><a rel="internal" href="https://developer.mozilla.org/es/docs/Web/HTML" data-locale="es" title="Espagnol">Español (es)</a></bdi></li>
+                
+                  <li lang="fa"><bdi><a rel="internal" href="https://developer.mozilla.org/fa/docs/Web/HTML" data-locale="fa" title="Perse">فارسی (fa)</a></bdi></li>
+                
+                  <li lang="fi"><bdi><a rel="internal" href="https://developer.mozilla.org/fi/docs/Web/HTML" data-locale="fi" title="Finnois">suomi (fi)</a></bdi></li>
+                
+                  <li lang="he"><bdi><a rel="internal" href="https://developer.mozilla.org/he/docs/Web/Hypertext_Markup_Language" data-locale="he" title="Hébreu">עברית (he)</a></bdi></li>
+                
+                  <li lang="hi-IN"><bdi><a rel="internal" href="https://developer.mozilla.org/hi-IN/docs/Web/HTML" data-locale="hi-IN" title="Hindi (d&#39;Inde)">हिन्दी (भारत) (hi-IN)</a></bdi></li>
+                
+                  <li lang="hr"><bdi><a rel="internal" href="https://developer.mozilla.org/hr/docs/Web/HTML" data-locale="hr" title="Croate">Hrvatski (hr)</a></bdi></li>
+                
+                  <li lang="id"><bdi><a rel="internal" href="https://developer.mozilla.org/id/docs/Web/HTML" data-locale="id" title="Indonésien">Bahasa Indonesia (id)</a></bdi></li>
+                
+                  <li lang="it"><bdi><a rel="internal" href="https://developer.mozilla.org/it/docs/Web/HTML" data-locale="it" title="Italien">Italiano (it)</a></bdi></li>
+                
+                  <li lang="ja"><bdi><a rel="internal" href="https://developer.mozilla.org/ja/docs/Web/HTML" data-locale="ja" title="Japonais">日本語 (ja)</a></bdi></li>
+                
+                  <li lang="ka"><bdi><a rel="internal" href="https://developer.mozilla.org/ka/docs/Web/HTML" data-locale="ka" title="Géorgien">ქართული (ka)</a></bdi></li>
+                
+                  <li lang="kab"><bdi><a rel="internal" href="https://developer.mozilla.org/kab/docs/Web/HTML" data-locale="kab" title="Kabyle">Taqbaylit (kab)</a></bdi></li>
+                
+                  <li lang="ko"><bdi><a rel="internal" href="https://developer.mozilla.org/ko/docs/Web/HTML" data-locale="ko" title="Coréen">한국어 (ko)</a></bdi></li>
+                
+                  <li lang="ml"><bdi><a rel="internal" href="https://developer.mozilla.org/ml/docs/Web/HTML" data-locale="ml" title="Malayalam">മലയാളം (ml)</a></bdi></li>
+                
+                  <li lang="ms"><bdi><a rel="internal" href="https://developer.mozilla.org/ms/docs/Web/HTML" data-locale="ms" title="Malais">Melayu (ms)</a></bdi></li>
+                
+                  <li lang="my"><bdi><a rel="internal" href="https://developer.mozilla.org/my/docs/Web/HTML" data-locale="my" title="Birman">မြန်မာဘာသာ (my)</a></bdi></li>
+                
+                  <li lang="nl"><bdi><a rel="internal" href="https://developer.mozilla.org/nl/docs/Web/HTML" data-locale="nl" title="Néerlandais">Nederlands (nl)</a></bdi></li>
+                
+                  <li lang="pl"><bdi><a rel="internal" href="https://developer.mozilla.org/pl/docs/Web/HTML(PL)" data-locale="pl" title="Polonais">Polski (pl)</a></bdi></li>
+                
+                  <li lang="pt-BR"><bdi><a rel="internal" href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" data-locale="pt-BR" title="Portugais brésilien">Português (do&nbsp;Brasil) (pt-BR)</a></bdi></li>
+                
+                  <li lang="pt-PT"><bdi><a rel="internal" href="https://developer.mozilla.org/pt-PT/docs/Web/HTML" data-locale="pt-PT" title="Portugais">Português (Europeu) (pt-PT)</a></bdi></li>
+                
+                  <li lang="ro"><bdi><a rel="internal" href="https://developer.mozilla.org/ro/docs/Web/HTML" data-locale="ro" title="Roumain">Română (ro)</a></bdi></li>
+                
+                  <li lang="ru"><bdi><a rel="internal" href="https://developer.mozilla.org/ru/docs/Web/HTML" data-locale="ru" title="Russe">Русский (ru)</a></bdi></li>
+                
+                  <li lang="sq"><bdi><a rel="internal" href="https://developer.mozilla.org/sq/docs/Web/HTML" data-locale="sq" title="Albanais">Shqip (sq)</a></bdi></li>
+                
+                  <li lang="sr"><bdi><a rel="internal" href="https://developer.mozilla.org/sr/docs/Web/HTML" data-locale="sr" title="Serbe">Српски (sr)</a></bdi></li>
+                
+                  <li lang="sv-SE"><bdi><a rel="internal" href="https://developer.mozilla.org/sv-SE/docs/Web/HTML" data-locale="sv-SE" title="Suédois">Svenska (sv-SE)</a></bdi></li>
+                
+                  <li lang="ta"><bdi><a rel="internal" href="https://developer.mozilla.org/ta/docs/Web/HTML" data-locale="ta" title="Tamoul">தமிழ் (ta)</a></bdi></li>
+                
+                  <li lang="th"><bdi><a rel="internal" href="https://developer.mozilla.org/th/docs/Web/HTML" data-locale="th" title="Thaï">ไทย (th)</a></bdi></li>
+                
+                  <li lang="uk"><bdi><a rel="internal" href="https://developer.mozilla.org/uk/docs/Web/HTML" data-locale="uk" title="Ukrainien">Українська (uk)</a></bdi></li>
+                
+                  <li lang="vi"><bdi><a rel="internal" href="https://developer.mozilla.org/vi/docs/Web/HTML_vi" data-locale="vi" title="Vietnamien">Tiếng Việt (vi)</a></bdi></li>
+                
+                  <li lang="zh-CN"><bdi><a rel="internal" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML" data-locale="zh-CN" title="Chinois (simplifié)">中文 (简体) (zh-CN)</a></bdi></li>
+                
+                  <li lang="zh-TW"><bdi><a rel="internal" href="https://developer.mozilla.org/zh-TW/docs/Web/HTML" data-locale="zh-TW" title="Chinois (traditionnel)">正體中文 (繁體) (zh-TW)</a></bdi></li>
+                
+              
+
+              
+            </ul>
+          </div>
+        </div>
+      </li>
+      
+      <li class="page-buttons-edit">
+          <a href="https://developer.mozilla.org/fr/docs/Web/HTML$edit" class="button neutral" id="edit-button" rel="nofollow">
+              <svg class="icon icon-pencil" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" aria-hidden="true">
+    <path d="M5.672 24l1.422-1.422-3.672-3.672L2 20.328V22h2v2h1.672zm8.172-14.5a.329.329 0 0 0-.344-.344.368.368 0 0 0-.266.109l-8.469 8.469a.366.366 0 0 0-.109.266c0 .203.141.344.344.344a.368.368 0 0 0 .266-.109l8.469-8.469a.366.366 0 0 0 .109-.266zM13 6.5l6.5 6.5-13 13H0v-6.5zM23.672 8c0 .531-.219 1.047-.578 1.406L20.5 12 14 5.5l2.594-2.578c.359-.375.875-.594 1.406-.594s1.047.219 1.422.594l3.672 3.656c.359.375.578.891.578 1.422z"></path>
+</svg>
+              Modifier
+          </a>
+      </li>
+      
+
+        
+
+        <li class="page-buttons-advanced">
+            <button id="advanced-menu" class="only-icon" aria-haspopup="true" aria-owns="advanced-menu-submenu" aria-expanded="false">
+                <svg class="icon icon-gear" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" aria-hidden="true">
+    <path d="M16 14c0-2.203-1.797-4-4-4s-4 1.797-4 4 1.797 4 4 4 4-1.797 4-4zm8-1.703v3.469c0 .234-.187.516-.438.562l-2.891.438a8.86 8.86 0 0 1-.609 1.422c.531.766 1.094 1.453 1.672 2.156.094.109.156.25.156.391s-.047.25-.141.359c-.375.5-2.484 2.797-3.016 2.797a.795.795 0 0 1-.406-.141l-2.156-1.687a9.449 9.449 0 0 1-1.422.594c-.109.953-.203 1.969-.453 2.906a.573.573 0 0 1-.562.438h-3.469c-.281 0-.531-.203-.562-.469l-.438-2.875a9.194 9.194 0 0 1-1.406-.578l-2.203 1.672c-.109.094-.25.141-.391.141s-.281-.063-.391-.172c-.828-.75-1.922-1.719-2.578-2.625a.607.607 0 0 1 .016-.718c.531-.719 1.109-1.406 1.641-2.141a8.324 8.324 0 0 1-.641-1.547l-2.859-.422A.57.57 0 0 1 0 15.705v-3.469c0-.234.187-.516.422-.562l2.906-.438c.156-.5.359-.969.609-1.437a37.64 37.64 0 0 0-1.672-2.156c-.094-.109-.156-.234-.156-.375s.063-.25.141-.359c.375-.516 2.484-2.797 3.016-2.797.141 0 .281.063.406.156L7.828 5.94a9.449 9.449 0 0 1 1.422-.594c.109-.953.203-1.969.453-2.906a.573.573 0 0 1 .562-.438h3.469c.281 0 .531.203.562.469l.438 2.875c.484.156.953.344 1.406.578l2.219-1.672c.094-.094.234-.141.375-.141s.281.063.391.156c.828.766 1.922 1.734 2.578 2.656a.534.534 0 0 1 .109.344c0 .141-.047.25-.125.359-.531.719-1.109 1.406-1.641 2.141.266.5.484 1.016.641 1.531l2.859.438a.57.57 0 0 1 .453.562z"></path>
+</svg>
+                <span>Avancé</span>
+            </button>
+            <div class="submenu js-submenu" id="advanced-menu-submenu">
+                <!-- this page -->
+                <div class="submenu-column">
+                    <div class="title">Avancé</div>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML$history" rel="nofollow">Historique</a></li>
+                        
+                        
+                        
+
+
+                
+
+                <li class="page-print"><a href="https://developer.mozilla.org/fr/docs/Web/HTML#" onclick="return window.print();">Imprimer cet article</a></li>
+            </ul>
+          </div>
+        </div>
+  </li></ul>
+      </div>
+    </div>
+  </div>
+  
+
+      <div class="center clear">
+      
+
+    <div class="wiki-main-content" id="document-main"><div class="center">
+      <!-- start the main content container -->
+        <div id="wiki-column-container" class="wiki-left-present">
+
+          <!-- content row with three strips -->
+          <div class="column-container column-container-reverse">
+
+            <!-- center: main article content -->
+            <div id="wiki-content" class="column-main wiki-column text-content">
+
+              
+
+              
+              
+
+              
+
+              
+                
+              
+              
+
+              <!-- just the article content -->
+              <article id="wikiArticle">
+                
+                  
+                    <div></div>
+
+<p><strong>HTML</strong> signifie « <em>HyperText Markup Language</em> » qu'on peut traduire par «&nbsp;langage de balises pour l'hypertexte&nbsp;». Il est utilisé afin de créer et de représenter le contenu d'une page web et sa structure. D'autres technologies sont utilisées avec HTML pour décrire la présentation d'une page (<a href="https://developer.mozilla.org/fr/docs/Web/CSS">CSS</a>) et/ou ses fonctionnalités interactives (<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript">JavaScript</a>).</p>
+
+<p>HTML fonctionne grâce à des «&nbsp;balises&nbsp;» qui sont insérées au sein d'un texte normal. Chacune de ces balises indique la signification de telle ou telle portion de texte dans le site. On parle d'«&nbsp;hypertexte&nbsp;» en référence aux liens qui connectent les pages web entre elles. C'est la mécanique originelle du «&nbsp;World Wide Web&nbsp;» que nous connaissons aujourd'hui. En écrivant et publiant des pages web, vous devenez un acteur du Web dès que votre site est accessible en ligne.</p>
+
+<p>HTML permet d'inclure des images et d'autres contenus dans les pages web. Grâce à HTML, chacun peut créer des sites web aussi bien statiques que dynamiques. HTML est le langage qui permet de décrire la structure et le contenu d'un document web. Ce contenu est balisé par des éléments HTML comme <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/head" title="L&#39;élément HTML &lt;head&gt; fournit des informations générales (métadonnées) sur le document, incluant son titre et des liens ou des définitions vers des scripts et feuilles de style."><code>&lt;head&gt;</code></a>, <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/title" title="L&#39;élément &lt;title&gt; définit le titre du document (qui est affiché dans la barre de titre du navigateur ou dans l&#39;onglet de la page). Cet élément ne peut contenir que du texte, les balises qu&#39;il contiendrait seraient ignorées."><code>&lt;title&gt;</code></a>, <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/body" title="L&#39;élément &lt;body&gt; représente le contenu principal du document HTML. Il ne peut y avoir qu&#39;un élément &lt;body&gt; par document."><code>&lt;body&gt;</code></a>, <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/header" title="L&#39;élément HTML &lt;header&gt; représente un groupe de contenu introductif ou de contenu aidant à la navigation. Il peut contenir des éléments de titre, mais aussi d&#39;autres éléments tels qu&#39;un logo, un formulaire de recherche, etc."><code>&lt;header&gt;</code></a>, <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/footer" title="L&#39;élément HTML &lt;footer&gt; représente le pied de page de la section ou de la racine de sectionnement la plus proche. Un pied de page ou de section contient habituellement des informations sur l&#39;auteur de la section, les données relatives au droit d&#39;auteur (copyright) ou les liens vers d&#39;autres documents en relation."><code>&lt;footer&gt;</code></a>, <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/article" title="L&#39;élément HTML &lt;article&gt; représente du contenu autonome dans un document, une page, une application, ou un site. Ceci peut être un message sur un forum, un article de journal ou de magazine, une parution sur un blog, un commentaire d&#39;utilisateur, un widget ou gadget interactif, ou tout autre élément de contenu indépendant. Ce contenu est prévu pour être distribué ou réutilisé indépendamment (par exemple dans un flux de syndication)."><code>&lt;article&gt;</code></a>, <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/section" title="L&#39;élément HTML &lt;section&gt; représente une section générique d&#39;un document, par exemple un groupe de contenu thématique. Une section commence généralement avec un titre."><code>&lt;section&gt;</code></a>, <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/p" title="L&#39;élément HTML &lt;p&gt; représente un paragraphe de texte. Les paragraphes sont généralement représentés comme des blocs et séparés par un espace vertical, leur première ligne est également parfois indentée. Les paragraphes sont des éléments blocs."><code>&lt;p&gt;</code></a>, <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/div" title="L&#39;élément HTML &lt;div&gt; (qui signifie division du document) est un conteneur générique qui permet d&#39;organiser le contenu sans représenter rien de particulier. Il peut être utilisé afin de grouper d&#39;autres éléments pour leur appliquer un style (en utilisant les attributs class ou id) ou parce qu&#39;ils partagent des attributs aux valeurs communes, tel que lang. Il doit uniquement être utilisé lorsqu&#39;aucun autre élément sémantique (par exemple &lt;article&gt; ou &lt;nav&gt;) n&#39;est approprié."><code>&lt;div&gt;</code></a>, <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/span" title="L&#39;élément HTML &lt;span&gt; est un conteneur générique en ligne (inline) pour les contenus phrasés. Il ne représente rien de particulier. Il peut être utilisé pour grouper des éléments afin de les mettre en forme (grâce aux attributs class ou id et aux règles CSS) ou parce qu&#39;ils partagent certaines valeurs d&#39;attribut comme lang. Il doit uniquement être utilisé lorsqu&#39;aucun autre élément sémantique n&#39;est approprié. &lt;span&gt; est très proche de l&#39;élément &lt;div&gt;, mais l&#39;élément &lt;div&gt; est un élément de bloc, alors que &lt;span&gt; est un élément en ligne."><code>&lt;span&gt;</code></a>, <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/img" title="L&#39;élément HTML &lt;img&gt; permet de représenter une image dans un document. Cet élément est un élément remplacé."><code>&lt;img&gt;</code></a> et bien d'autres encore. Ces éléments forment les blocs utilisés pour construire un site web.</p>
+
+<p>En HTML, les balises sont insensibles à la casse et peuvent aussi bien être écrites en minuscules, en majuscules voire avec un mélange des deux. Autrement dit, la balise <code>&lt;title&gt;</code>pourrait très bien être écrite comme <code>&lt;Title&gt;</code>, <code>&lt;TiTle&gt;</code> ou d'une autre façon.</p>
+
+<p>Les articles suivants fournissent des éléments de référence utiles au développement web&nbsp;:</p>
+
+<section class="cleared" id="sect1">
+<ul class="card-grid">
+ <li><span>Introduction à HTML</span>
+
+  <p>Vous faites vos premiers pas dans le développement web&nbsp;? <a href="https://developer.mozilla.org/fr/Apprendre/Commencer_avec_le_web/Les_bases_HTML">Nos articles sur les bases de HTML</a> expliquent ce qu'est HTML et comment l'utiliser.</p>
+ </li>
+ <li><span>Tutoriels HTML</span>
+  <p>Pour plus d'informations sur l'utilisation du HTML, des tutoriels et des exemples complets, vous pouvez consulter <a href="https://developer.mozilla.org/fr/Apprendre/HTML">notre section Apprendre HTML</a>.</p>
+ </li>
+ <li><span>Référence HTML</span>
+  <p>Dans notre <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Reference">référence exhaustive</a>, vous trouverez le détail de chaque élément et attribut constituant HTML.</p>
+ </li>
+</ul>
+
+<div>
+<div>
+<h2 id="Tutoriels">Tutoriels<a class="local-anchor" href="https://developer.mozilla.org/fr/docs/Web/HTML#Tutoriels" data-heading-id="Tutoriels"><svg class="icon icon-link" version="1.1" width="24" height="28" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>Section</span></a></h2>
+
+<p>La section <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML">Apprendre HTML</a> contient plusieurs modules pour vous apprendre à utiliser HTML sans autre connaissance particulière.</p>
+
+<dl>
+ <dt><a href="https://developer.mozilla.org/fr/Apprendre/HTML/Introduction_%C3%A0_HTML">Une introduction à HTML</a></dt>
+ <dd>Dans ce module, on brosse un premier portrait de HTML pour présenter les concepts importants, la syntaxe. On voit comment appliquer HTML sur du texte, comment créer des hyperliens et comment structurer une page web grâce à HTML.</dd>
+ <dt><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Multimedia_and_embedding" class="new">Le multimédia et l'intégration</a></dt>
+ <dd>Dans ce module, on explore comment utiliser HTML pour intégrer des fichiers multimédias dans une page web. Cela couvre les différentes façons d'inclure une image, comment ajouter une vidéo ou un fichier audio voire aussi comment intégrer d'autres pages web.</dd>
+ <dt><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Tables" class="new">Les tableaux HTML</a></dt>
+ <dd>Il est parfois compliqué de représenter des données tabulaires de façon compréhensible et lisible sur une page web. Dans ce module, on voit les différentes balises utilisées pour construire des tableaux et certaines fonctionnalités plus complexes comme les légendes et résumés.</dd>
+ <dt><a href="https://developer.mozilla.org/fr/docs/Web/Guide/HTML/Formulaires">Les formulaires HTML</a></dt>
+ <dd>Les formulaires sont cruciaux sur le Web, ils permettent de créer un compte sur un site, de se connecter, d'acheter des produits, d'écrire des commentaires, etc. Dans ce module, on voit comment créer des formulaires pour le navigateur (« côté client »).</dd>
+ <dt><a href="https://developer.mozilla.org/fr/Apprendre/HTML/Comment">Utiliser HTML pour résoudre des problèmes courants</a></dt>
+ <dd>Ce module fournit un ensemble d'articles au sujet des problèmes qu'on rencontre fréquemment lorsqu'on crée une page web : gérer les titres, ajouter des images ou des vidéos, mettre en avant une partie du texte, créer un formulaire, etc.</dd>
+</dl>
+
+<h2 id="Références">Références<a class="local-anchor" href="https://developer.mozilla.org/fr/docs/Web/HTML#R%C3%A9f%C3%A9rences" data-heading-id="Références"><svg class="icon icon-link" version="1.1" width="24" height="28" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>Section</span></a></h2>
+
+<dl>
+ <dt><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Reference">Référence HTML</a></dt>
+ <dd>HTML est un langage décrivant la structure et le contenu sémantique d'un document web. Il est constitué d'<strong>éléments</strong>, chacun pouvant être paramétré grâce à différents <strong>attributs</strong>.</dd>
+ <dt><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element">Référence des éléments HTML</a></dt>
+ <dd>Cette page liste les différents éléments HTML.</dd>
+ <dt><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_globaux">Référence des attributs HTML</a></dt>
+ <dd>Les éléments HTML possèdent des attributs. Ce sont des valeurs additionnelles permettant de configurer ou d'ajuster le comportement les éléments de manières à répondre aux critères de l'utilisateur.</dd>
+ <dt><a href="https://developer.mozilla.org/fr/docs/Web/HTML/%C3%89l%C3%A9ments_en_ligne">Éléments en ligne</a> et <a href="https://developer.mozilla.org/fr/docs/Web/HTML/%C3%89l%C3%A9ments_en_bloc">éléments de bloc</a></dt>
+ <dd>Les éléments HTML sont habituellement des éléments « en ligne » ou des éléments de bloc. Un élément en ligne occupe seulement l'espace associé aux balises. Les éléments de bloc sont une catégorie d'éléments HTML opposés aux éléments en ligne. Leur caractéristique principale réside dans le fait qu'ils sont séparés par un saut de ligne avant et après l'élément. Ce faisant, ils prennent la largeur de leurs conteneurs (créant ainsi un bloc de contenu).</dd>
+ <dt><a href="https://developer.mozilla.org/fr/docs/Web/HTML">Attributs universels</a></dt>
+ <dd>Les attributs universels peuvent être utilisés sur tous les éléments HTML, <em>même ceux non spécifiés dans le standard</em>. Par exemple, les navigateurs qui prennent en charge HTML5 masquent les contenus marqués comme <code>&lt;toto hidden&gt;...&lt;toto&gt;</code><code>, bien que </code><code>&lt;toto&gt;</code> ne soit pas un élément valide HTML.</dd>
+ <dt><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Types_de_lien">Types de lien</a></dt>
+ <dd>Les différents liens permettent de décrire les relations entre deux documents qui sont reliés entre eux par un élément <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a" title="L&#39;élément &lt;a&gt; (pour ancre ou anchor en anglais) définit un hyperlien vers un autre endroit de la même page ou vers une autre page sur le Web."><code>&lt;a&gt;</code></a>, <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/area" title="L&#39;élément HTML &lt;area&gt; définit une zone particulière d&#39;une image et peut lui associer un lien hypertexte. Cet élément n&#39;est utilisé qu&#39;au sein d&#39;un élément &lt;map&gt;."><code>&lt;area&gt;</code></a> ou <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/link" title="L&#39;élément HTML &lt;link&gt; définit la relation entre le document courant et une ressource externe. Cet élément peut être utilisé pour définir un lien vers une feuille de style ou un cadre de navigation (accéder à la même page dans une langue différente par exemple)."><code>&lt;link&gt;</code></a>.</dd>
+ <dt><a href="https://developer.mozilla.org/fr/docs/Web/HTML/formats_media_support">Formats de média audio et vidéo pris en charge par HTML</a></dt>
+ <dd>Les éléments <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/audio" title="L&#39;élément HTML &lt;audio&gt; est utilisé afin d&#39;intégrer un contenu sonore dans un document. Il peut contenir une ou plusieurs sources audio représentées avec l&#39;attribut src ou l&#39;élément &lt;source&gt;. S&#39;il y a plusieurs sources, l&#39;agent utilisateur choisira celle qui convient le mieux."><code>&lt;audio&gt;</code></a> et <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/video" title="L&#39;élément HTML &lt;video&gt; intègre un contenu vidéo dans un document."><code>&lt;video&gt;</code></a> permettent d'ajouter des médias audio et vidéo directement dans le navigateur (sans avoir à utiliser des plugins ou programmes tiers).</dd>
+ <dt><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Web/HTML/Kinds_of_HTML_content" class="new">Types de contenu HTML</a></dt>
+ <dd>HTML s'organise selon différents types de contenu dont chacun peut être autorisé ou non en fonction du contexte. Ces catégories indiquent quels éléments peuvent être contenus ou non dans d'autres éléments. Cet article explique le fonctionnement de ces catégories.</dd>
+</dl>
+</div>
+
+<div>
+<h2 id="Autres_guides">Autres guides<a class="local-anchor" href="https://developer.mozilla.org/fr/docs/Web/HTML#Autres_guides" data-heading-id="Autres_guides"><svg class="icon icon-link" version="1.1" width="24" height="28" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>Section</span></a></h2>
+
+<dl>
+ <dt class="landingPageList"><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Images_avec_le_contr%C3%B4le_d_acc%C3%A8s_HTTP">Images avec CORS activé</a></dt>
+ <dd class="landingPageList">L'attribut <code><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/img#attr-crossorigin">crossorigin</a></code>, utilisé avec un en-tête <a href="https://developer.mozilla.org/fr/docs/Glossaire/CORS" class="glossaryLink" title="CORS : CORS (Partage de ressource cross-origin) est un mécanisme qui consiste à transmettre des entêtes HTTP qui déterminent s&#39;il faut ou non bloquer les requêtes à des ressources restreintes sur une page web qui se trouve sur un domaine externe au domaine dont la ressource est originaire.">CORS</a> adéquat, permet aux images définies via un élément <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/img" title="L&#39;élément HTML &lt;img&gt; permet de représenter une image dans un document. Cet élément est un élément remplacé."><code>&lt;img&gt;</code></a> d'être chargées depuis des origines tierces et d'être utilisées au sein d'éléments <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/canvas" title="L&#39;élément &lt;canvas&gt; permet de modifier une zone graphique via un script (habituellement en JavaScript ou grâce à WebGL). Il peut par exemple être utilisé afin de dessiner des graphiques, manipuler des images ou jouer des animations."><code>&lt;canvas&gt;</code></a> comme si elles étaient chargées depuis l'origine courante.</dd>
+ <dt><a href="https://developer.mozilla.org/fr/docs/Web/fr/docs/Web/HTML/Reglages_des_attributs_CORS">Attributs de réglage du CORS</a></dt>
+ <dd>Certains des éléments HTML supportant le <a href="https://developer.mozilla.org/fr/docs/HTTP/Access_control_CORS">CORS</a> (Cross-Origin Resource Sharing) comme <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/img" title="L&#39;élément HTML &lt;img&gt; permet de représenter une image dans un document. Cet élément est un élément remplacé."><code>&lt;img&gt;</code></a> ou <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/video" title="L&#39;élément HTML &lt;video&gt; intègre un contenu vidéo dans un document."><code>&lt;video&gt;</code></a> ont un attribut <code><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/img#attr-crossorigin">crossorigin</a></code> qui permet de configurer les requêtes CORS pour les données de l'élément à renvoyer.</dd>
+ <dt><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Gestion_du_focus_en_HTML">Gérer le focus en HTML</a></dt>
+ <dd>L'attribut DOM <a href="https://developer.mozilla.org/fr/docs/Web/API/Document/activeElement" title="Renvoie l&#39;élément qui dispose actuellement du focus."><code>Document.activeElement</code></a> et la méthode DOM <a href="https://developer.mozilla.org/fr/docs/Web/API/Document/hasFocus" title="La méthode Document.hasFocus() retourne une valeur  Boolean true (vrai) indiquant si le document ou tout élément à l&#39;intérieur du document a le focus. Cette méthode peut être utilisée pour déterminer si l&#39;élément actif d&#39;un document a le focus."><code>Document.hasFocus()</code></a> permettent au programmeur de mieux contrôler l'interactivité d'une page vis à vis des actions de l'utilisateur. Ils peuvent par exemple être utilisés pour des statistiques, pour surveiller le nombre de clics sur certains liens d'une page, pour comptabiliser le nombre de fois où l'élément reçoit le focus, etc. De plus, combinés à AJAX, ils aident à minimiser le nombre de requêtes au serveur, en fonction de l'activité de l'utilisateur et de l'agencement de la page.</dd>
+ <dt><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Utiliser_Application_Cache">Utiliser le cache d'application</a></dt>
+ <dd>HTML fournit un mécanisme de <em>cache d'application </em>qui permet aux applications web de fonctionner hors-ligne. Les développeurs peuvent utiliser l'interface d'<strong>Application Cache</strong> (<em>AppCache</em>) pour spécifier les ressources que le navigateur devrait intégrer au cache, et de fait, les rendre accessibles aux utilisateurs. Les applications dont les données sont dans le cache peuvent ainsi être utilisées hors-ligne.</dd>
+ <dt class="landingPageList"><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Pr%C3%A9charger_du_contenu">Précharger du contenu grâce à <code>rel="preload"</code></a></dt>
+ <dd class="landingPageList">La valeur <code>preload</code> de l'attribut <code><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/link#attr-rel">rel</a></code> associé à l'élément <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/link" title="L&#39;élément HTML &lt;link&gt; définit la relation entre le document courant et une ressource externe. Cet élément peut être utilisé pour définir un lien vers une feuille de style ou un cadre de navigation (accéder à la même page dans une langue différente par exemple)."><code>&lt;link&gt;</code></a> permet d'écrire des requêtes de récupération de ressources au sein de l'élément <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/head" title="L&#39;élément HTML &lt;head&gt; fournit des informations générales (métadonnées) sur le document, incluant son titre et des liens ou des définitions vers des scripts et feuilles de style."><code>&lt;head&gt;</code></a> du document HTML pour les ressources qui seront nécessaires à la page peu de temps après le chargement. Les ressources ciblées sont ainsi préchargées lors du chargement de la page avant que le navigateur effectue un premier rendu. Cela permets que les ressources soient disponibles plus tôt et moins susceptibles de bloquer l'affichage de la page, améliorant ainsi les performances. Cet article explique les bases du fonctionnement de <code>preload</code>.</dd>
+ <dt class="landingPageList"><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Quirks_Mode_and_Standards_Mode">Modes de compatibilité (<em>quirks mode</em>) et mode standard</a></dt>
+ <dd class="landingPageList">Des informations historiques à propos du mode <em>quirks</em> et du mode standard.</dd>
+</dl>
+</div>
+</div>
+
+<p><a href="https://developer.mozilla.org/fr/docs/tag/HTML">Voir tout…</a></p>
+
+<p></p><div class="blockIndicator communitybox">
+
+    <div class="column-container">
+        <h2 id="Rejoignez_la_communauté_Mise_en_page_Web">Rejoignez la communauté Mise en page Web<a class="local-anchor" href="https://developer.mozilla.org/fr/docs/Web/HTML#Rejoignez_la_communaut%C3%A9_Mise_en_page_Web" data-heading-id="Rejoignez_la_communauté_Mise_en_page_Web"><svg class="icon icon-link" version="1.1" width="24" height="28" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>Section</span></a></h2>
+        <div class="column-half">
+            <div class="communitysubhead">Choisissez votre méthode préférée pour rejoindre la discussion&nbsp;:</div>
+            <ul class="communitymailinglist">
+  <li><a rel="noopener" href="https://lists.mozilla.org/listinfo/dev-tech-layout" class="external external-icon"> Liste de diffusion</a></li>
+  
+  
+  <li><a rel="noopener" href="http://groups.google.com/group/mozilla.dev.tech.layout" class="external external-icon"> 		newsgroup</a></li>
+  <li><a rel="noopener" href="http://groups.google.com/group/mozilla.dev.tech.layout/feeds" class="external external-icon"> Flux de syndication</a></li>
+</ul>
+        </div>
+        <div class="column-half">
+            <ul class="communitycontact"><li><strong>Stack Overflow: </strong><a rel="noopener" href="http://stackoverflow.com/questions/tagged/html" class="external external-icon" title="Stack Overflow est un site de questions-réponses géré de façon collaborative. Vous pouvez chercher parmi les réponses existantes ou poser votre question.">Sujets HTML</a></li></ul>
+        </div>
+    </div>
+</div><p></p>
+</section>
+                  
+                
+              </article>
+
+              <!-- contributors -->
+              <div class="wiki-block contributors">
+                <h2 class="offscreen">Étiquettes et contributeurs liés au document</h2>
+                
+                
+  <div class="tag-attach-list contributors-sub">
+    <svg class="icon icon-tags" xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 30 28" aria-hidden="true">
+    <path d="M7 7c0-1.109-.891-2-2-2s-2 .891-2 2 .891 2 2 2 2-.891 2-2zm16.672 9c0 .531-.219 1.047-.578 1.406l-7.672 7.688c-.375.359-.891.578-1.422.578s-1.047-.219-1.406-.578L1.422 13.906C.625 13.125 0 11.609 0 10.5V4c0-1.094.906-2 2-2h6.5c1.109 0 2.625.625 3.422 1.422l11.172 11.156c.359.375.578.891.578 1.422zm6 0c0 .531-.219 1.047-.578 1.406l-7.672 7.688a2.08 2.08 0 0 1-1.422.578c-.812 0-1.219-.375-1.75-.922l7.344-7.344c.359-.359.578-.875.578-1.406s-.219-1.047-.578-1.422L14.422 3.422C13.625 2.625 12.11 2 11 2h3.5c1.109 0 2.625.625 3.422 1.422l11.172 11.156c.359.375.578.891.578 1.422z"></path>
+</svg>
+    <strong>Étiquettes :</strong>&nbsp;
+    <ul class="tags tags-small">
+      
+        <li><a href="https://developer.mozilla.org/fr/docs/tag/HTML" rel="nofollow">HTML</a></li>
+      
+        <li><a href="https://developer.mozilla.org/fr/docs/tag/HTML%205" rel="nofollow">HTML 5</a></li>
+      
+        <li><a href="https://developer.mozilla.org/fr/docs/tag/Landing" rel="nofollow">Landing</a></li>
+      
+        <li><a href="https://developer.mozilla.org/fr/docs/tag/Reference" rel="nofollow">Reference</a></li>
+      
+        <li><a href="https://developer.mozilla.org/fr/docs/tag/Web" rel="nofollow">Web</a></li>
+      
+    </ul>
+  </div>
+
+
+                
+                  <div class="contributors-sub">
+                    <svg class="icon icon-group" xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 30 28" aria-hidden="true">
+    <path d="M9.266 14a5.532 5.532 0 0 0-4.141 2H3.031C1.468 16 0 15.25 0 13.516 0 12.25-.047 8 1.937 8c.328 0 1.953 1.328 4.062 1.328.719 0 1.406-.125 2.078-.359A7.624 7.624 0 0 0 7.999 10c0 1.422.453 2.828 1.266 4zM26 23.953C26 26.484 24.328 28 21.828 28H8.172C5.672 28 4 26.484 4 23.953 4 20.422 4.828 15 9.406 15c.531 0 2.469 2.172 5.594 2.172S20.063 15 20.594 15C25.172 15 26 20.422 26 23.953zM10 4c0 2.203-1.797 4-4 4S2 6.203 2 4s1.797-4 4-4 4 1.797 4 4zm11 6c0 3.313-2.688 6-6 6s-6-2.688-6-6 2.688-6 6-6 6 2.688 6 6zm9 3.516C30 15.25 28.531 16 26.969 16h-2.094a5.532 5.532 0 0 0-4.141-2A7.066 7.066 0 0 0 22 10a7.6 7.6 0 0 0-.078-1.031A6.258 6.258 0 0 0 24 9.328C26.109 9.328 27.734 8 28.062 8c1.984 0 1.937 4.25 1.937 5.516zM28 4c0 2.203-1.797 4-4 4s-4-1.797-4-4 1.797-4 4-4 4 1.797 4 4z"></path>
+</svg>
+                    <strong>Contributeurs à cette page&nbsp;:</strong>
+                    
+        <a href="https://developer.mozilla.org/fr/profiles/SphinxKnight">SphinxKnight</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/NicolasCELLA">NicolasCELLA</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/NerOcrO">NerOcrO</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/tonybengue">tonybengue</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/Goofy">Goofy</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/KhalilSnaake">KhalilSnaake</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/Aminelahlou">Aminelahlou</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/CLEm">CLEm</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/daniel35310">daniel35310</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/Gibus">Gibus</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/krischamp">krischamp</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/julia31">julia31</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/jsx">jsx</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/teoli">teoli</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/DamienBertrand">DamienBertrand</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/wakka27">wakka27</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/Luejni">Luejni</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/nicoo">nicoo</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/PetiPandaRou">PetiPandaRou</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/Junipa">Junipa</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/msherefel">msherefel</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/claudepache">claudepache</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/tregagnon">tregagnon</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/Saydev">Saydev</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/FredB">FredB</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/BenoitL">BenoitL</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/ThePrisoner">ThePrisoner</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/abc222">abc222</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/david-suisse">david-suisse</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/Shz">Shz</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/xaky">xaky</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/fscholz">fscholz</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/Mgjbot">Mgjbot</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/Chbok">Chbok</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/Planche">Planche</a>, 
+    
+        <a href="https://developer.mozilla.org/fr/profiles/Takenbot">Takenbot</a>
+    
+                  </div>
+                
+
+                
+                  <div class="contributors-sub">
+                    <svg class="icon icon-clock" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" aria-hidden="true">
+    <path d="M14 8.5v7c0 .281-.219.5-.5.5h-5a.494.494 0 0 1-.5-.5v-1c0-.281.219-.5.5-.5H12V8.5c0-.281.219-.5.5-.5h1c.281 0 .5.219.5.5zm6.5 5.5c0-4.688-3.813-8.5-8.5-8.5S3.5 9.313 3.5 14s3.813 8.5 8.5 8.5 8.5-3.813 8.5-8.5zm3.5 0c0 6.625-5.375 12-12 12S0 20.625 0 14 5.375 2 12 2s12 5.375 12 12z"></path>
+</svg>
+                    <strong>Dernière mise à jour par :</strong>
+                    <a href="https://developer.mozilla.org/fr/profiles/SphinxKnight">SphinxKnight</a>,
+                    <time datetime="2018-12-17T03:29:55.651399-08:00">17 déc. 2018 à 03:29:55</time>
+                  </div>
+                
+              </div>
+            </div>
+
+            
+              <!-- quick links and approvals strip -->
+              <div id="wiki-left" class="column-strip wiki-column">
+
+                <!-- crumbs -->
+                
+  
+    <nav class="crumbs" role="navigation">
+      <ol typeof="BreadcrumbList" vocab="https://schema.org/" aria-label="fils d&#39;ariane">
+        
+          <li property="itemListElement" typeof="ListItem" class="crumb">
+            <a href="https://developer.mozilla.org/fr/docs/Web" property="item" typeof="WebPage">
+              <span property="name">Technologies web pour développeurs</span>
+            </a>
+            <meta property="position" content="1">
+          </li>
+        
+        <li property="itemListElement" typeof="ListItem" class="crumb">
+          <span property="name" aria-current="page">HTML (Hyper<wbr>Text Markup Language)</span>
+        </li>
+      </ol>
+    </nav>
+  
+
+                
+                  <!-- quick links -->
+                  
+  <div class="quick-links" id="quick-links">
+    <div class="quick-links-head">Sujets associés</div>
+    
+ <ol>
+  <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML"><strong><em>HTML</em></strong></a></li>
+  <li><strong>Tutoriels:</strong></li>
+  <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/HTML_basics" class="new">HTML basics</a></li>
+  <li class="toggle">
+    <details>
+      <summary>Introduction to HTML</summary>
+      <ol>
+          <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Introduction_to_HTML" class="new">Introduction to HTML overview</a></li>
+          <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Introduction_to_HTML/Getting_started" class="new">Getting started with HTML</a></li>
+          <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML" class="new">What's in the head? Metadata in HTML</a></li>
+          <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals" class="new">HTML text fundamentals</a></li>
+          <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks" class="new">Creating hyperlinks</a></li>
+          <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting" class="new">Advanced text formatting</a></li>
+          <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure" class="new">Document and website structure</a></li>
+          <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Introduction_to_HTML/Debugging_HTML" class="new">Debugging HTML</a></li>
+          <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Introduction_to_HTML/Marking_up_a_letter" class="new">Assessment: Marking up a letter</a></li>
+          <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Introduction_to_HTML/Structuring_a_page_of_content" class="new">Assessment: Structuring a page of content</a></li>
+      </ol>
+    </details>
+  </li>
+  <li class="toggle">
+    <details>
+      <summary>Multimedia and embedding</summary>
+      <ol>
+        <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Multimedia_and_embedding" class="new">Multimedia and embedding overview</a></li>
+        <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML" class="new">Images in HTML</a></li>
+        <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content" class="new">Video and audio content</a></li>
+        <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Multimedia_and_embedding/Other_embedding_technologies" class="new">From object to iframe — other embedding technologies</a></li>
+        <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web" class="new">Adding vector graphics to the Web</a></li>
+        <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images" class="new">Responsive images</a></li>
+        <li><a rel="nofollow" href="https://developer.mozilla.org/fr/docs/Learn/HTML/Multimedia_and_embedding/Mozilla_splash_page" class="new">Assessment: Mozilla splash page</a></li>
+      </ol>
+    </details>
+  </li>
+  <li><strong><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Reference">Références&nbsp;:</a></strong></li>
+  <li class="toggle">
+    <details open="">
+      <summary>Éléments HTML</summary>
+      <ol><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a" title="L&#39;élément &lt;a&gt; (pour ancre ou anchor en anglais) définit un hyperlien vers un autre endroit de la même page ou vers une autre page sur le Web."><code>&lt;a&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/abbr" title="L&#39;élément &lt;abbr&gt; représente une abréviation ou un acronyme et permet, de façon optionnelle, d&#39;en fournir une description complète. S&#39;il est présent, l&#39;attribut title doit contenir cette même description complète et rien d&#39;autre."><code>&lt;abbr&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/acronym" title="L&#39;élément HTML &lt;acronym&gt;, pour les acronymes, permet aux auteurs de pages d&#39;indiquer une suite de caractères composant un acronyme ou l&#39;abréviation d&#39;un mot."><code>&lt;acronym&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/address" title="L&#39;élément HTML &lt;address&gt; indique des informations de contact pour une personne, un groupe de personnes ou une organisation."><code>&lt;address&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/applet" title="L&#39;élément HTML &lt;applet&gt;, pour les applets, définit l&#39;intégration d&#39;une applet Java. Cet élément est désormais déprécié en faveur de &lt;object&gt;."><code>&lt;applet&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/area" title="L&#39;élément HTML &lt;area&gt; définit une zone particulière d&#39;une image et peut lui associer un lien hypertexte. Cet élément n&#39;est utilisé qu&#39;au sein d&#39;un élément &lt;map&gt;."><code>&lt;area&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/article" title="L&#39;élément HTML &lt;article&gt; représente du contenu autonome dans un document, une page, une application, ou un site. Ceci peut être un message sur un forum, un article de journal ou de magazine, une parution sur un blog, un commentaire d&#39;utilisateur, un widget ou gadget interactif, ou tout autre élément de contenu indépendant. Ce contenu est prévu pour être distribué ou réutilisé indépendamment (par exemple dans un flux de syndication)."><code>&lt;article&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/aside" title="L&#39;élément HTML &lt;aside&gt; (en anglais, &quot;aparté&quot;) représente une partie d&#39;un document dont le contenu n&#39;a qu&#39;un rapport indirect avec le contenu principal du document."><code>&lt;aside&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/audio" title="L&#39;élément HTML &lt;audio&gt; est utilisé afin d&#39;intégrer un contenu sonore dans un document. Il peut contenir une ou plusieurs sources audio représentées avec l&#39;attribut src ou l&#39;élément &lt;source&gt;. S&#39;il y a plusieurs sources, l&#39;agent utilisateur choisira celle qui convient le mieux."><code>&lt;audio&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/b" title="L&#39;élément &lt;b&gt; permet d&#39;attirer l&#39;attention du lecteur sur le contenu d&#39;un élément sans que ce contenu revêt une importance particulière. Anciennement utilisé pour mettre le texte en gras. Cet élément ne doit pas être utilisé pour mettre en forme des éléments, c&#39;est la propriété CSS font-weight qu&#39;il faut utiliser. Si l&#39;élément est d&#39;une importance particulière, on utilisera l&#39;élément HTML &lt;strong&gt;."><code>&lt;b&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/base" title="L&#39;élément &lt;base&gt; définit l&#39;URL de base à utiliser pour recomposer toutes les URL relatives contenues dans un document. Il ne peut y avoir qu&#39;un seul élément &lt;base&gt; au sein d&#39;un document."><code>&lt;base&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/basefont" title="L&#39;élément &lt;basefont&gt; définit la police par défaut (taille, fonte, couleur) pour les éléments qui sont des descendants de cet élément. La taille de la police utilisée peut ensuite varier relativement à cette taille de base grâce à l&#39;élément &lt;font&gt;."><code>&lt;basefont&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/bdi" title="L&#39;élément &lt;bdi&gt; (ou élément d&#39;isolation de texte bidirectionnel) isole une portée (span) de texte pouvant être formatée dans une direction différente de celle du texte qui l&#39;entoure. Cela permet, par exemple, de présenter correctement une citation en arabe (écrit de droite à gauche) au sein d&#39;un texte écrit en français (écrit de gauche à droite)."><code>&lt;bdi&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/bdo" title="Le code source de cet exemple interactif est disponible dans un dépôt GitHub. Si vous souhaitez contribuez à ces exemples, n&#39;hésitez pas à cloner https://github.com/mdn/interactive-examples et à envoyer une pull request !"><code>&lt;bdo&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="Cette API n&#39;a pas été standardisée."><i class="icon-warning-sign"> </i></span></span><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/bgsound" title="Une fonctionnalité similaire pouvait être obtenue dans d&#39;autres navigateurs grâce à l&#39;élément &lt;embed&gt; afin d&#39;invoquer un lecteur audio. Cet élément étant également obsolète, il est préférable d&#39;utiliser &lt;audio&gt;."><code>&lt;bgsound&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/big" title="L&#39;élément &lt;big&gt; (gros) augmente d&#39;une taille la police du texte de l&#39;élément (il permet par exemple de passer de small à medium, ou de large à x-large) jusqu&#39;à atteindre la taille maximale du navigateur."><code>&lt;big&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/blink" title="Cet élément n&#39;est pas pris en charge et implémente donc l&#39;interface HTMLUnknownElement."><code>&lt;blink&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/blockquote" title="L&#39;élément &lt;blockquote&gt; (qui signifie bloc de citation) indique que le texte contenu dans l&#39;élément est une citation longue. Le texte est généralement affiché avec une indentation (voir les notes ci-après). Une URL indiquant la source de la citation peut être donnée grâce à l&#39;attribut cite tandis qu&#39;un texte représentant la source peut être donné via l&#39;élément &lt;cite&gt;."><code>&lt;blockquote&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/body" title="L&#39;élément &lt;body&gt; représente le contenu principal du document HTML. Il ne peut y avoir qu&#39;un élément &lt;body&gt; par document."><code>&lt;body&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/br" title="L&#39;élément HTML &lt;br&gt; crée un saut de ligne (un retour chariot) dans le texte. Il s&#39;avère utile lorsque les sauts de ligne ont une importance (par exemple lorsqu&#39;on écrit une adresse ou un poème)."><code>&lt;br&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Button" title="L&#39;élément HTML &lt;button&gt; est utilisé afin de créer un contrôle interactif ayant la forme d&#39;un bouton et qui pourra être utilisé dans un formulaire ou dans le document."><code>&lt;button&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/canvas" title="L&#39;élément &lt;canvas&gt; permet de modifier une zone graphique via un script (habituellement en JavaScript ou grâce à WebGL). Il peut par exemple être utilisé afin de dessiner des graphiques, manipuler des images ou jouer des animations."><code>&lt;canvas&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/caption" title="L&#39;élément HTML &lt;caption&gt; représente la légende (ou le titre) d&#39;un tableau. Il doit être le première élément parmi les descendants de l&#39;élément &lt;table&gt;. La mise en forme CSS peut placer cet élément à un autre endroit par rapport au tableau et on pourra notamment utiliser les propriétés caption-side et text-align."><code>&lt;caption&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/center" title="L’élément HTML &lt;center&gt; est un élément de type bloc qui contient des paragraphes et d&#39;autres éléments de type bloc ou en ligne. Le contenu entier de cet élément est centré horizontalement au sein de son conteneur parent (généralement l&#39;élément &lt;body&gt;)."><code>&lt;center&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/cite" title="L&#39;élément HTML &lt;cite&gt; contient le titre d&#39;une œuvre telle qu&#39;un livre, une chanson, un film, une sculpture… Cet élément doit inclure le titre de l&#39;œuvre, le nom de son auteur ou une URL de référence qui peut-être abrégée en accord avec les conventions d&#39;usages pour l&#39;ajout des métadonnées de citations."><code>&lt;cite&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/code" title="L&#39;élément HTML &lt;code&gt; représente un fragment de code machine. Par défaut, l&#39;agent utilisateur utilise une police à chasse fixe (monospace) afin d&#39;afficher le texte contenu dans cet élément."><code>&lt;code&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/col" title="L&#39;élément HTML &lt;col&gt; définit une colonne appartenant à un tableau et est utilisé afin de définir la sémantique commune à toutes ses cellules. On trouve généralement cet élément au sein d&#39;un élément &lt;colgroup&gt;."><code>&lt;col&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/colgroup" title="L&#39;élément HTML &lt;colgroup&gt; définit un groupe de colonnes au sein d&#39;un tableau."><code>&lt;colgroup&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/command" title="L&#39;élément HTML &lt;command&gt; représente une commande qui peut être lancée par l&#39;utilisateur. Ces commandes font généralement partie d&#39;un menu contextuel ou d&#39;une barre d&#39;outils mais on peut les exécuter n&#39;importe où sur la page."><code>&lt;command&gt;</code></a></li><li><span class="sidebar-icon"><span title="Cette API obsolète ne doit plus être utilisée, mais elle peut continuer à fonctionner."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/content" title="L&#39;élément HTML &lt;content&gt; était utilisé au sein d&#39;un shadow DOM comme point d&#39;insertion. Cet élément est désormais obsolète et n&#39;était pas conçu pour être utilisé dans un document HTML simple mais pour être employé dans des composants web. Il est désormais remplacé par l&#39;élément &lt;slot&gt; qui permet de créer un point d&#39;insertion pour un shadow DOM au sein du DOM."><code>&lt;content&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/data" title="L&#39;élément HTML &lt;data&gt; relie un contenu à une version de ce contenu interprétable par un ordinateur. Si le contenu possède une composante temporelle, l&#39;élément &lt;time&gt; doit être utiisé."><code>&lt;data&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/datalist" title="L&#39;élément HTML &lt;datalist&gt; contient un ensemble d&#39;éléments &lt;option&gt; qui représentent les valeurs possibles pour d&#39;autres contrôles."><code>&lt;datalist&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/dd" title="L&#39;élément HTML &lt;dd&gt; (pour definition description) indique la définition d&#39;un terme au sein d&#39;une liste de définitions (élément (&lt;dl&gt;). Cet élément ne peut apparaître qu&#39;en tant qu&#39;élément appartenant à une liste de définitions et doit être précédé d&#39;un élément &lt;dt&gt;."><code>&lt;dd&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/del" title="L&#39;élément HTML &lt;del&gt; représente une portion de texte ayant été supprimée d&#39;un document. Cet élément est souvent (mais pas nécessairement) affiché rayé."><code>&lt;del&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/details" title="L&#39;élément HTML &lt;details&gt; est utilisé comme un outil permettant de révéler une information. Un résumé ou un intitulé peuvent être fournis grâce à un élément &lt;summary&gt;."><code>&lt;details&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/dfn" title="L&#39;élément HTML &lt;dfn&gt; est utilisé afin d&#39;indiquer le terme qui est en train d&#39;être défini dans une phrase ou un paragraphe (sa définition est écrite dans son parent &lt;p&gt; ou &lt;dt&gt;/&lt;dd&gt; ou &lt;section&gt; le plus proche)."><code>&lt;dfn&gt;</code></a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/dialog" title="L&#39;élément HTML &lt;dialog&gt; représente une boite de dialogue ou un composant interactif (par exemple un inspecteur ou une fenêtre)."><code>&lt;dialog&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/dir" title="L&#39;élément HTML &lt;dir&gt; (pour directory) est utilisé comme un conteneur pour un répertoire (c&#39;est-à-dire un ensemble de fichiers). Des styles et icônes peuvent être appliqués par l&#39;agent utilisateur. Cet élément obsolète ne doit pas être utilisé, il peut être remplacé par l&#39;élément &lt;ul&gt; qui permet de représenter des listes et, entre autres, des listes de fichiers."><code>&lt;dir&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/div" title="L&#39;élément HTML &lt;div&gt; (qui signifie division du document) est un conteneur générique qui permet d&#39;organiser le contenu sans représenter rien de particulier. Il peut être utilisé afin de grouper d&#39;autres éléments pour leur appliquer un style (en utilisant les attributs class ou id) ou parce qu&#39;ils partagent des attributs aux valeurs communes, tel que lang. Il doit uniquement être utilisé lorsqu&#39;aucun autre élément sémantique (par exemple &lt;article&gt; ou &lt;nav&gt;) n&#39;est approprié."><code>&lt;div&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/dl" title="L&#39;élément HTML &lt;dl&gt; représente une liste de descriptions sous la forme d&#39;une liste de paires associant des termes (fournis par des éléments &lt;dt&gt;)  et leurs descriptions ou définitions (fournies par des éléments &lt;dd&gt;). On utilisera par exemple cet élément pour implémenter un glossaire."><code>&lt;dl&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/dt" title="L&#39;élément HTML &lt;dt&gt; identifie un terme dans une liste de définitions ou de descriptions. Cet élément n&#39;apparaît qu&#39;en tant qu&#39;élément enfant d&#39;un élément &lt;dl&gt; et est généralement suivi d&#39;un élément &lt;dd&gt;."><code>&lt;dt&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/element" title="L&#39;élément HTML &lt;element&gt; était conçu pour être utilisé afin de définir des éléments DOM personnalisés, il a été retiré de la spécification. Il a été retiré en faveur d&#39;outils JavaScript qui permettront de créer de nouveaux éléments personnalisés. En revanche, cette nouvelle technologie n&#39;est pas encore mature et peu de navigateurs (voire aucun) ne l&#39;implémentent actuellement."><code>&lt;element&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/em" title="L&#39;élément HTML &lt;em&gt; (pour emphase) est utilisé afin de marquer un texte sur lequel on veut insister. Les éléments &lt;em&gt; peuvent être imbriqués, chaque degré d&#39;imbrication indiquant un degré d&#39;insistance plus élevé."><code>&lt;em&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/embed" title="L&#39;élément HTML &lt;embed&gt; représente un point d&#39;intégration pour une application externe ou pour du contenu interactif (autrement dit, pour un plug-in)."><code>&lt;embed&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Fieldset" title="L&#39;élément HTML &lt;fieldset&gt; est utilisé afin de regrouper plusieurs contrôles interactifs ainsi que des étiquettes (&lt;label&gt;) dans un formulaire web."><code>&lt;fieldset&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/figcaption" title="L&#39;élément HTML &lt;figcaption&gt; permet d&#39;indiquer un sous-titre, une légende, associé à une figure ou à une illustration (cette dernière étant représentée par l&#39;élément &lt;figure&gt; qui est le parent direct de la légende). L&#39;élément &lt;figcaption&gt; est optionnel ; s&#39;il n&#39;est pas présent, la figure n&#39;aura pas de légende."><code>&lt;figcaption&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/figure" title="L&#39;élément HTML &lt;figure&gt; représente un contenu indépendant, habituellement accompagné d&#39;une légende grâce à l&#39;élément &lt;figcaption&gt;. Il est normalement référencé de manière unique. C&#39;est souvent une image, une illustration, un diagramme, un fragment de code ou un schéma auquel il est fait référence dans le texte principal mais qui peut être utilisé sur une autre page ou dans une annexe sans que cela affecte le contenu principal."><code>&lt;figure&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/font" title="L&#39;élément HTML &lt;font&gt; définit la taille du texte, sa couleur et la police utilisée."><code>&lt;font&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/footer" title="L&#39;élément HTML &lt;footer&gt; représente le pied de page de la section ou de la racine de sectionnement la plus proche. Un pied de page ou de section contient habituellement des informations sur l&#39;auteur de la section, les données relatives au droit d&#39;auteur (copyright) ou les liens vers d&#39;autres documents en relation."><code>footer</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Form" title="L&#39;élément HTML &lt;form&gt; représente une section d&#39;un document qui contient des contrôles interactifs permettant à un utilisateur d&#39;envoyer des données à un serveur web."><code>&lt;form&gt;</code></a></li><li><span class="sidebar-icon"><span title="Cette API obsolète ne doit plus être utilisée, mais elle peut continuer à fonctionner."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/frame" title="&lt;frame&gt; est un élément HTML qui définit une zone particulière dans laquelle un autre document HTML est affiché. Une &lt;frame&gt; doit être utilisée dans un élément &lt;frameset&gt;."><code>&lt;frame&gt;</code></a></li><li><span class="sidebar-icon"><span title="Cette API obsolète ne doit plus être utilisée, mais elle peut continuer à fonctionner."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/frameset" title="&lt;frameset&gt; est un élément HTML utilisé pour contenir les éléments &lt;frame&gt;."><code>&lt;frameset&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Heading_Elements" title="Les éléments &lt;h1&gt; à &lt;h6&gt; représentent six niveaux de titres dans un document, &lt;h1&gt; est le plus important et &lt;h6&gt; est le moins important. Un élément de titre décrit brièvement le sujet de la section qu&#39;il introduit."><code>&lt;h1&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/head" title="L&#39;élément HTML &lt;head&gt; fournit des informations générales (métadonnées) sur le document, incluant son titre et des liens ou des définitions vers des scripts et feuilles de style."><code>&lt;head&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/header" title="L&#39;élément HTML &lt;header&gt; représente un groupe de contenu introductif ou de contenu aidant à la navigation. Il peut contenir des éléments de titre, mais aussi d&#39;autres éléments tels qu&#39;un logo, un formulaire de recherche, etc."><code>&lt;header&gt;</code></a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/hgroup" title="L&#39;élément HTML &lt;hgroup&gt; représente un titre de plusieurs niveaux pour une section d&#39;un document. Il regroupe un ensemble d&#39;éléments &lt;h1&gt;–&lt;h6&gt;."><code>&lt;hgroup&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/hr" title="L&#39;élément HTML &lt;hr&gt; représente un changement thématique entre des éléments de paragraphe (par exemple, un changement de décor dans un récit, un changement de sujet au sein d&#39;un section)."><code>&lt;hr&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/html" title="L&#39;élément HTML &lt;html&gt; représente la racine d&#39;un document HTML ou XHTML. Tout autre élément du document doit être un descendant de cet élément."><code>&lt;html&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/i" title="L&#39;élément HTML &lt;i&gt; représente un morceau de texte qui se différencie du texte principal. Cela peut par exemple être le cas pour des termes techniques, des phrases dans une langue étrangère ou encore l&#39;expression des pensées d&#39;un personnage. Le contenu de cet élément est généralement affiché en italique."><code>&lt;i&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe" title="Le code source de cet exemple interactif est disponible dans un dépôt GitHub. Si vous souhaitez contribuez à ces exemples, n&#39;hésitez pas à cloner https://github.com/mdn/interactive-examples et à envoyer une pull request !"><code>&lt;iframe&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="Cette API n&#39;a pas été standardisée."><i class="icon-warning-sign"> </i></span></span><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/image" title="L&#39;élément HTML &lt;image&gt; est un élément obsolète, remplacé depuis longtemps par l&#39;élément standard &lt;img&gt;."><code>&lt;image&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Img" title="L&#39;élément HTML &lt;img&gt; permet de représenter une image dans un document. Cet élément est un élément remplacé."><code>&lt;img&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input" title="L&#39;élément HTML &lt;input&gt; est utilisé pour créer un contrôle interactif dans un formulaire web qui permet à l&#39;utilisateur de saisir des données. Les saisies possibles et le comportement de l&#39;élément &lt;input&gt; dépend fortement de la valeur indiquée dans son attribut type."><code>&lt;input&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/ins" title="L&#39;élément HTML &lt;ins&gt; représente un fragment de texte qui a été ajouté dans un document."><code>&lt;ins&gt;</code></a></li><li><span class="sidebar-icon"><span title="Cette API obsolète ne doit plus être utilisée, mais elle peut continuer à fonctionner."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/isindex" title="L&#39;élément HTML &lt;isindex&gt; est un élément obsolète qui permet de placer un champ sur une page afin d&#39;effectuer des recherches dans le document. &lt;isindex&gt; devait permettre de saisir une ligne de texte pour une requête, à la suite de cette saisie, le serveur renvoyait une liste de pages qui correspondait à la requête. La prise en charge de cet élément dépendait du navigateur et du serveur."><code>&lt;isindex&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/kbd" title="The HTML Keyboard Input element (&lt;kbd&gt;) represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device."><code>&lt;kbd&gt;</code></a></li><li><span class="sidebar-icon"><span title="Cette API obsolète ne doit plus être utilisée, mais elle peut continuer à fonctionner."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Keygen" title="L&#39;élément HTML &lt;keygen&gt; existe afin de faciliter la génération de clés et l&#39;envoi d&#39;une clé publique via un formulaire HTML. Le mécanisme utilisé est conçu pour être utilisé avec les systèmes de gestion de certificats électroniques. L&#39;élément keygen est prévu pour être utilisé dans un formulaire HTML avec d&#39;autres informations permettant de construire une requête de certificat, le résultat du processus étant un certificat signé."><code>&lt;keygen&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Label" title="L&#39;élément HTML &lt;label&gt; représente une légende pour un objet d&#39;une interface utilisateur. Il peut être associé à un contrôle en utilisant l&#39;attribut for ou en plaçant l&#39;élément du contrôle à l&#39;intérieur de l&#39;élément &lt;label&gt;. Un tel contrôle est appelé contrôle étiqueté par l&#39;élément &lt;label&gt;."><code>&lt;label&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Legend" title="L&#39;élément HTML &lt;legend&gt; représente une légende pour le contenu de son élément parent &lt;fieldset&gt;."><code>&lt;legend&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/li" title="L&#39;élément HTML &lt;li&gt; est utilisé pour représenter un élément dans une liste. Il doit être contenu dans un élément parent : une liste ordonnée (&lt;ol&gt;), une liste non ordonnée (&lt;ul&gt;) ou un menu (&lt;menu&gt;). Dans les menus et les listes non ordonnées, les éléments de liste sont habituellement affichés en utilisant des puces. Dans les listes ordonnées, ils sont habituellement affichés avec compteur croissant à gauche, tel qu&#39;un nombre ou une lettre."><code>&lt;li&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/link" title="L&#39;élément HTML &lt;link&gt; définit la relation entre le document courant et une ressource externe. Cet élément peut être utilisé pour définir un lien vers une feuille de style ou un cadre de navigation (accéder à la même page dans une langue différente par exemple)."><code>&lt;link&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/listing" title="L&#39;élément HTML &lt;listing&gt; affiche le texte compris entre les balises d&#39;ouverture et de fermeture sans interpréter le HTML contenu, et en utilisant une police à chasse fixe. Le standard HTML 2 recommande de ne pas casser les lignes si elles ne sont pas plus grandes que 132 caractères."><code>&lt;listing&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/main" title="L’élément HTML &lt;main&gt; représente le contenu majoritaire du &lt;body&gt; du document. Le contenu principal de la zone est constitué de contenu directement en relation, ou qui étend le sujet principal du document ou de la fonctionnalité principale d&#39;une application."><code>&lt;main&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/map" title="L&#39;élément HTML &lt;map&gt; est utilisé avec des éléments &lt;area&gt; afin de définir une image cliquable divisée en régions."><code>&lt;map&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/mark" title="L&#39;élément HTML &lt;mark&gt; représente un texte marqué ou surligné à cause de sa pertinence dans le contexte. Il peut par exemple être utilisé afin d&#39;indiquer les correspondances d&#39;un mot-clé recherché au sein d&#39;un document."><code>&lt;mark&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/marquee" title="L&#39;élément HTML &lt;marquee&gt; est utilisé pour insérer une zone de texte défilant."><code>&lt;marquee&gt;</code></a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/menu" title="L&#39;élément HTML &lt;menu&gt; représente un groupe de commandes que l&#39;utilisateur peut utiliser ou activer. Il peut être utilisé afin de créer des menus (affichés en haut d&#39;un écran par exemple) et des menus contextuels (qui apparaissent au clic-droit ou après avoir cliqué sur un bouton)."><code>&lt;menu&gt;</code></a></li><li><span class="sidebar-icon"><span title="Cette API obsolète ne doit plus être utilisée, mais elle peut continuer à fonctionner."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/menuitem" title="L&#39;élément HTML &lt;menuitem&gt; représente une commande qu&#39;un utilisateur peut utilisé via un menu contextuel ou un menu rattaché à un bouton."><code>&lt;menuitem&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/meta" title="L&#39;élément HTML &lt;meta&gt; représente toute information de métadonnées qui ne peut pas être représentée par un des éléments (&lt;base&gt;, &lt;link&gt;, &lt;script&gt;, &lt;style&gt; ou &lt;title&gt;)"><code>&lt;meta&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Meter" title="L&#39;élément HTML &lt;meter&gt; représente une valeur scalaire dans un intervalle donné ou une valeur fractionnaire."><code>&lt;meter&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="Cette API n&#39;a pas été standardisée."><i class="icon-warning-sign"> </i></span></span><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/multicol" title="L&#39;élément HTML &lt;multicol&gt; était un élement expérimental conçu afin de réaliser des agencements sur plusieurs colonnes.
+ Il n&#39;a jamais eu une traction significative et n&#39;est pas implémenté dans la plupart des navigateurs."><code>&lt;multicol&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/nav" title="L&#39;élément HTML &lt;nav&gt; représente une section d&#39;une page ayant des liens vers d&#39;autres pages ou des fragments de cette page. Autrement dit, c&#39;est une section destinée à la navigation dans un document (avec des menus, des tables des matières, des index, etc.)."><code>&lt;nav&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/nextid" title="L&#39;élément HTML &lt;nextid&gt; est un élément obsolète qui était utilisé par l&#39;outil de conception web NeXT afin de générer automatiquement des attributs name. Cet élément fut l&#39;un des premiers à disparaître du DTD public des versions HTML et est également l&#39;un des premiers éléments HTML les moins compris."><code>&lt;nextid&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="Cette API n&#39;a pas été standardisée."><i class="icon-warning-sign"> </i></span></span><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/nobr" title="L&#39;élément HTML &lt;nobr&gt; évite qu&#39;un texte soit coupé par un retour à la ligne automatique ; il est donc affiché sur une seule ligne. Il peut être alors nécessaire d&#39;utiliser les barres de défilement pour lire le texte en intégralité."><code>&lt;nobr&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="Cette API n&#39;a pas été standardisée."><i class="icon-warning-sign"> </i></span></span><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/noembed" title="L&#39;élément &lt;noembed&gt; est une façon obsolète et non standardisée de fournir une alternative de contenu pour les navigateurs ne supportant pas l&#39;élément &lt;embed&gt; ou des catégories de contenu qu&#39;un auteur aimerait utiliser.
+ Cet élément a été rendu obsolète à partir de la version HTML 4.01 et a été remplacé par &lt;object&gt;. Le contenu alternatif doit être inséré entre la balise d&#39;ouverture et celle de fermeture de &lt;object&gt;"><code>&lt;noembed&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/noframes" title="L&#39;élément HTML obsolète &lt;noframes&gt; est utilisé par les navigateurs qui ne supportent pas les éléments &lt;frame&gt;, ou qui sont configurés afin de ne pas les supporter."><code>&lt;noframes&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/noscript" title="L&#39;élément HTML &lt;noscript&gt; définit un fragment HTML qui doit être affiché si les fonctionnalités de script ne sont pas prises en charge ou si elles sont désactivées."><code>&lt;noscript&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/object" title="L&#39;élément HTML &lt;object&gt; représente une ressource externe qui peut être interprétée comme une image, un contexte de navigation imbriqué ou une ressource à traiter comme un plugin."><code>&lt;object&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/ol" title="L&#39;élément HTML &lt;ol&gt; représente une liste ordonnée. Les éléments d&#39;une telle liste sont généralement affichés avec un indicateur ordinal pouvant prendre la forme de nombres, de lettres, de chiffres romains ou de points. La mise en forme de la numérotation n&#39;est pas utilisée dans la description HTML mais dans la feuille de style CSS associée grâce à la propriété list-style-type."><code>&lt;ol&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Optgroup" title="L&#39;élément HTML &lt;optgroup&gt;, utilisé dans un formulaire, permet de créer un groupe d&#39;options parmi lesquelles on peut choisir dans un élément &lt;select&gt;."><code>&lt;optgroup&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Option" title="L&#39;élément HTML &lt;option&gt;, utilisé dans un formulaire, permet de représenter un contrôle au sein d&#39;un élément &lt;select&gt;, &lt;optgroup&gt; ou &lt;datalist&gt;. Cet élément peut donc représenter des éléments d&#39;un menu dans un document HTML."><code>&lt;option&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/output" title="L&#39;élément HTML &lt;output&gt; représente un conteneur dans lequel un site ou une application peut injecter le résultat d&#39;un calcul ou d&#39;une action utilisateur."><code>&lt;output&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/p" title="L&#39;élément HTML &lt;p&gt; représente un paragraphe de texte. Les paragraphes sont généralement représentés comme des blocs et séparés par un espace vertical, leur première ligne est également parfois indentée. Les paragraphes sont des éléments blocs."><code>&lt;p&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/param" title="L&#39;élément HTML &lt;param&gt; définit les paramètres qui peuvent être employés dans un élément &lt;object&gt;."><code>&lt;param&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/picture" title="L&#39;élément HTML &lt;picture&gt; est un conteneur utilisé afin de définir zéro ou plusieurs éléments &lt;source&gt; destinés à un élément &lt;img&gt;. Le navigateur choisira la source la plus pertinente selon la disposition de la page (les contraintes qui s&#39;appliquent à la boîte dans laquelle l&#39;image devra être affichée), selon l&#39;appareil utilisé (la densité de pixels de l&#39;affichage par exemple avec les appareils hiDPI) et selon les formats pris en charge (ex. WebP pour les navigateurs Chromium ou PNG pour les autres). Si aucune correspondance n&#39;est trouvée parmi les éléments &lt;source&gt;, c&#39;est le fichier défini par l&#39;attribut src de l&#39;élément &lt;img&gt; qui sera utilisé."><code>&lt;picture&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/plaintext" title="L&#39;élément HTML &lt;plaintext&gt; permet d&#39;afficher du texte qui n&#39;est pas interprété comme du HTML. Il ne possède pas de balise de fermeture, car tout ce qui suit n&#39;est plus considéré comme du HTML."><code>&lt;plaintext&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/pre" title="L&#39;élément HTML &lt;pre&gt; représente du texte préformaté, généralement écrit avec une police à chasse fixe. Le texte est affiché tel quel, les espaces utilisés dans le document HTML seront retranscrits."><code>&lt;pre&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Progress" title="L&#39;élément HTML &lt;progress&gt; indique l&#39;état de complétion d&#39;une tâche et est généralement représenté par une barre de progression."><code>&lt;progress&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/q" title="L&#39;élément HTML &lt;q&gt; indique que le texte qu&#39;il contient est une citation en incise. La plupart des navigateurs modernes entoure le texte de cet élément avec des marques de citation. Cet élément est destiné aux citations courtes qui ne nécessitent pas de sauts de paragraphe. Pour les plus grandes citations, on utilisera l&#39;élément &lt;blockquote&gt;."><code>&lt;q&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/rb" title="L&#39;élément de base ruby (&lt;rb&gt;) est utilisé afin de délimiter le composant texte de base d&#39;une annotation &lt;ruby&gt;. Autrement dit, le texte qui est annoté."><code>&lt;rb&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/rp" title="L&#39;élément HTML &lt;rp&gt; est utilisé pour fournir ce qui fera office de parenthèse aux navigateurs qui ne prennent pas en charge les annotations Ruby."><code>&lt;rp&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/rt" title="L&#39;élément HTML &lt;rt&gt; indique la composante texte d&#39;une annotation Ruby, il est notamment utilisé pour la prononciation, la traduction ou la translitération des caractères d&#39;Asie orientale. Cet élément est toujours contenu dans un élément &lt;ruby&gt;."><code>&lt;rt&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/rtc" title="Le code source de cet exemple interactif est disponible dans un dépôt GitHub. Si vous souhaitez contribuez à ces exemples, n&#39;hésitez pas à cloner https://github.com/mdn/interactive-examples et à envoyer une pull request !"><code>&lt;rtc&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/ruby" title="L&#39;élément HTML &lt;ruby&gt; représente une annotation ruby. Les annotations Ruby servent à afficher la prononciation des caractères d&#39;Asie orientale."><code>&lt;ruby&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/s" title="L&#39;élément HTML &lt;s&gt; permet d&#39;afficher du texte qui est barré car il n&#39;est plus pertinent ou car il est obsolète. &lt;s&gt; ne doit pas être employé pour indiquer des éditions dans un document (on utilisera alors &lt;del&gt; et &lt;ins&gt;)."><code>&lt;s&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/samp" title="L&#39;élément HTML &lt;samp&gt; est un élément qui permet de représenter un résultat produit par un programme informatique. Il est généralement affiché avec la police à chasse fixe du navigateur (par exemple en Courier ou en Lucida Console)."><code>&lt;samp&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/script" title="L&#39;élément HTML &lt;script&gt; est utilisé pour intégrer ou faire référence à un script exécutable. Cela fait généralement référence à du code JavaScript mais ce peut également être un autre type de script (par exemple WebGL)."><code>&lt;script&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/section" title="L&#39;élément HTML &lt;section&gt; représente une section générique d&#39;un document, par exemple un groupe de contenu thématique. Une section commence généralement avec un titre."><code>&lt;section&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/select" title="L&#39;élément HTML &lt;select&gt; représente un contrôle qui fournit une liste d&#39;options parmi lesquelles l&#39;utilisateur pourra choisir."><code>&lt;select&gt;</code></a></li><li><span class="sidebar-icon"><span title="Cette API obsolète ne doit plus être utilisée, mais elle peut continuer à fonctionner."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Shadow" title="Cet élément inclut uniquement les attributs universels."><code>&lt;shadow&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/slot" title="L&#39;élément HTML &lt;slot&gt; représente un emplacement d&#39;un composant web qu&#39;on peut remplir avec son propre balisage. On peut ainsi obtenir un document construit avec différents arbres DOM. Cet élément fait partie des outils relatifs aux composants web (Web Components)."><code>&lt;slot&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/small" title="L&#39;élément HTML &lt;small&gt; permet de représenter des commentaires ou des textes à écrire en petits caractères (des termes d&#39;un contrat, des mentions relatives au droit d&#39;auteur, etc.) quelle que soit la présentation."><code>&lt;small&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Source" title="L&#39;élément HTML &lt;source&gt; définit différentes ressources média pour un élément &lt;picture&gt;, &lt;audio&gt; ou &lt;video&gt;. C&#39;est un élément vide. Il est généralement utilisé pour distribuer le même contenu en utilisant les différents formats pris en charge par les différents navigateurs."><code>&lt;source&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/spacer" title="L&#39;élément HTML &lt;spacer&gt; était utilisé pour insérer des blancs au sein d&#39;une page web. Il a été créé par Netscape pour obtenir le même effet que celui qui était créé avec des images GIF d&#39;un pixel, permettant d&#39;ajouter des espaces blancs. Cependant, &lt;spacer&gt; n&#39;est pas pris en charge par les principaux navigateurs principaux et il faut utiliser les règles CSS pour obtenir ces effets d&#39;alignement. Firefox ne prend plus en charge cet élément depuis la version 4."><code>&lt;spacer&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/span" title="L&#39;élément HTML &lt;span&gt; est un conteneur générique en ligne (inline) pour les contenus phrasés. Il ne représente rien de particulier. Il peut être utilisé pour grouper des éléments afin de les mettre en forme (grâce aux attributs class ou id et aux règles CSS) ou parce qu&#39;ils partagent certaines valeurs d&#39;attribut comme lang. Il doit uniquement être utilisé lorsqu&#39;aucun autre élément sémantique n&#39;est approprié. &lt;span&gt; est très proche de l&#39;élément &lt;div&gt;, mais l&#39;élément &lt;div&gt; est un élément de bloc, alors que &lt;span&gt; est un élément en ligne."><code>&lt;span&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/strike" title="L&#39;élément HTML &lt;strike&gt; permet de représenter du texte barré ou avec une ligne le traversant."><code>&lt;strike&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/strong" title="L&#39;élément HTML &lt;strong&gt; indique que le texte a une importance particulière ou un certain sérieux voire un caractère urgent. Cela se traduit généralement par un affichage en gras."><code>&lt;strong&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/style" title="L&#39;élément HTML &lt;style&gt; contient des informations de mise en forme pour un document ou une partie d&#39;un document. Par défaut, les instructions de mise en forme écrites dans cet élément sont écrites en CSS."><code>&lt;style&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/sub" title="L&#39;élément HTML &lt;sub&gt; est utilisé, pour des raisons typographiques, afin d&#39;afficher du texte souscrit (ou en indice) (plus bas et généralement plus petit) par rapport au bloc de texte environnant."><code>&lt;sub&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/summary" title="L&#39;élément HTML &lt;summary&gt; représente une boîte permettant de révéler le contenu d&#39;un résumé ou d&#39;une légende pour le contenu d&#39;un élément &lt;details&gt;. En cliquant sur l&#39;élément &lt;summary&gt;, on passe de l&#39;état affiché à l&#39;état masqué (et vice versa) de l&#39;élément &lt;details&gt; parent."><code>&lt;summary&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/sup" title="L&#39;élément HTML &lt;sup&gt; est utilisé, pour des raisons typographiques, afin d&#39;afficher du texte en exposant (plus haut et généralement plus petit) par rapport au bloc de texte environnant."><code>&lt;sup&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/table" title="L&#39;élément HTML &lt;table&gt; permet de représenter un tableau de données, c&#39;est-à-dire des informations exprimées sur un tableau en deux dimensions."><code>&lt;table&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/tbody" title="L’élément HTML &lt;tbody&gt; permet de regrouper un ou plusieurs éléments &lt;tr&gt; afin de former le corps d&#39;un tableau HTML (&lt;table&gt;)."><code>&lt;tbody&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/td" title="L&#39;élément HTML &lt;td&gt; définit une cellule d&#39;un tableau qui contient des données. Cet élément fait partie du modèle de tableau."><code>&lt;td&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/template" title="L&#39;élément HTML &lt;template&gt; (ou Template Content ou modèle de contenu) est un mécanisme utilisé pour stocker du contenu côté client et qui ne doit pas être affiché lors du chargement de la page mais qui peut être instancié par la suite grâce à JavaScript."><code>&lt;template&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Textarea" title="L&#39;élément HTML &lt;textarea&gt; représente un contrôle qui permet d&#39;éditer du texte sur plusieurs lignes."><code>&lt;textarea&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/tfoot" title="L&#39;élément HTML &lt;tfoot&gt; permet de définir un ensemble de lignes qui résument les colonnes d&#39;un tableau."><code>&lt;tfoot&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/th" title="L&#39;élément HTML &lt;th&gt; définit une cellule d&#39;un tableau comme une cellule d&#39;en-tête pour un groupe de cellule. La nature de ce groupe est définie grâce aux attributs scope et headers."><code>&lt;th&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/thead" title="L&#39;élément &lt;thead&gt; définit un ensemble de lignes qui définit l&#39;en-tête des colonnes d&#39;un tableau."><code>&lt;thead&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/time" title="L&#39;élément HTML &lt;time&gt; permet de représenter une période donnée. Cet élément permet d&#39;utiliser l&#39;attribut datetime afin de traduire la date ou l&#39;instant dans un format informatique (permettant aux moteurs de recherche d&#39;exploiter ces données ou de créer des rappels)."><code>&lt;time&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/title" title="L&#39;élément &lt;title&gt; définit le titre du document (qui est affiché dans la barre de titre du navigateur ou dans l&#39;onglet de la page). Cet élément ne peut contenir que du texte, les balises qu&#39;il contiendrait seraient ignorées."><code>&lt;title&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/tr" title="L&#39;élément HTML &lt;tr&gt; définit une ligne de cellules dans un tableau. Une ligne peut être constituée d&#39;éléments &lt;td&gt; (les données des cellules) et &lt;th&gt; (les cellules d&#39;en-têtes)."><code>&lt;tr&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/track" title="L&#39;élément HTML &lt;track&gt; est utilisé comme élément fils d&#39;un élément &lt;audio&gt; ou &lt;video&gt; et permet de fournir une piste texte pour le média (par exemple afin de gérer automatiquement les sous-titres). Les pistes texte utilisées avec cet élément sont formatées selon le format WebVTT (ce sont des fichiers .vtt) (WebVTT pour Web Video Text Tracks) ou selon le format Timed Text Markup Language (TTML)."><code>&lt;track&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/tt" title="L&#39;élément HTML &lt;tt&gt; (pour Teletype Text) crée un élément en ligne, écrit dans la police à chasse fixe par défaut du navigateur. Cet élément a été conçu pour mettre en forme du texte comme s&#39;il apparaissait sur un affichage à largeur fixe tel qu&#39;un téléscripteur."><code>&lt;tt&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/u" title="L&#39;élément HTML &lt;u&gt; permet d&#39;afficher un fragment de texte qui est annoté avec des éléments non textuels. Par défaut, le contenu de l&#39;élément est souligné. Cela pourra par exemple être le cas pour marquer un texte comme étant un nom propre chinois, ou pour marquer un texte qui a été mal orthographié."><code>&lt;u&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/ul" title="L&#39;élément HTML &lt;ul&gt; représente une liste d&#39;éléments sans ordre particulier. Il est souvent représenté par une liste à puces."><code>&lt;ul&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/var" title="L&#39;élément HTML &lt;var&gt; représente une variable dans une expression mathématique ou un texte lié à la programmation. Son contenu est généralement représenté avec une version italique de la police environnante utilisée, toutefois, ce comportement peut dépendre du navigateur utilisé."><code>&lt;var&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Video" title="L&#39;élément HTML &lt;video&gt; intègre un contenu vidéo dans un document."><code>&lt;video&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/wbr" title="L&#39;élément HTML &lt;wbr&gt; permet de représenter un emplacement où casser la ligne si nécessaire. Le navigateur pourra alors utiliser cet emplacement pour effectuer un saut de ligne si le texte est trop long et qu&#39;en temps normal, une règle empêche le saut de ligne."><code>&lt;wbr&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/xmp" title="L&#39;élément HTML &lt;xmp&gt; (pour example) affiche le texte entre les balises d&#39;ouverture et de fermeture sans interpréter le HTML qu&#39;il contient et en utilisant une police à chasse fixe. La spécification HTML 2 recommande un affichage suffisamment large pour contenir 80 caractères par ligne."><code>&lt;xmp&gt;</code></a></li></ol>
+    </details>
+  </li>
+  <li class="toggle">
+    <details open="">
+      <summary>Attributs universels</summary>
+      <ol><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/accesskey" title="Le code source de cet exemple interactif est disponible dans un dépôt GitHub. Si vous souhaitez contribuez à ces exemples, n&#39;hésitez pas à cloner https://github.com/mdn/interactive-examples et à envoyer une pull request !"><code>accesskey</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/autocapitalize" title="L&#39;attribut universel autocapitalize est un attribut à valeurs contraintes qui contrôle la façon dont le texte saisi est automatiquement converti en majuscules ou non. Voici les valeurs autorisées pour cet attribut :"><code>autocapitalize</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/class" title="L&#39;attribut universel class indique une liste de classes associées à l&#39;élément courant. Les classes permettent de manipuler les éléments, via CSS ou JavaScript en utilisant les sélecteurs de classe ou des fonctions telles que document.getElementsByClassName."><code>class</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/contenteditable" title="L&#39;attribut universel contenteditable est un attribut à valeur contrainte qui indique si l&#39;élément courant doit pouvoir être édité par l&#39;utilisateur ou non. Lorsque c&#39;est le cas, des éléments de l&#39;interface du navigateur (ou de l&#39;agent utilisateur) sont modifiés afin de permettre l&#39;édition."><code>contenteditable</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/contextmenu" title="L&#39;attribut universel contextmenu correspond à l&#39;identifiant d&#39;un élément &lt;menu&gt; qu&#39;on souhaite utiliser comme menu contextuel pour l&#39;élément courant."><code>contextmenu</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/data-*" title="Les attributs universels data-* forment une classe d&#39;attributs, appelés attributs de données (data attributes). Ils permettent d&#39;échanger des données propriétaire entre le HTML et la représentation du DOM, qu&#39;on peut manipuler avec des scripts."><code>data-*</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/dir" title="L&#39;attribut universel dir est un attribut à valeur contrainte qui indique la direction du texte contenu dans l&#39;élément."><code>dir</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/draggable" title="L&#39;attribut universel draggable est un attribut à valeur contrainte qui indique si l&#39;élément peut être déplacé avec la souris dans un geste de glisser-déposer lorsqu&#39;on utilise l&#39;API Drag &amp; Drop. Les valeurs autorisées pour cet attribut sont les suivantes :"><code>draggable</code></a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/dropzone" title="L&#39;attribut universel dropzone est un attribut à valeur contrainte qui indique le type de contenu qui peut être déposé sur un élément, il est utilisé avec l&#39;API Drag &amp; Drop. Les valeurs autorisées pour cet attribut sont :"><code>dropzone</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/hidden" title="L&#39;attribut universel hidden est un attribut booléen qui indique s&#39;il n&#39;est pas encore ou s&#39;il n&#39;est plus pertinent d&#39;afficher l&#39;élément courant. Cet attribut peut, par exemple, être utilisé afin de masquer des éléments tant que l&#39;utilisateur ne s&#39;est pas connecté. Le navigateur n&#39;affichera pas les éléments masqués via cet attribut."><code>hidden</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/id" title="L&#39;attribut universel id définit un identifiant unique qui doit être unique pour l&#39;ensemble du document. Le but de cet attribut est de pouvoir identifier un élément lorsqu&#39;on crée un lien, qu&#39;on souhaite le manipuler avec un script ou qu&#39;on le met en forme avec CSS."><code>id</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/inputmode" title="L&#39;attribut universel inputmode est un attribut est un attribut à valeur contrainte qui fournit une indication au navigateur quant au type de donnée qui peut être saisi par l&#39;utilisateur lors de l&#39;édition de l&#39;élément ou de son contenu."><code>inputmode</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/is" title="L&#39;attribut is est un attribut universel qui indique qu&#39;un élément HTML standard devrait se comporter comme un élément natif personnalisé (custom element) défini (voir Manipuler les custom elements pour plus de détails)."><code>is</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/itemid" title="L&#39;attribut universel itemid permet d&#39;identifier un objet, au sens des microdonnées, de façon unique et globale. L&#39;attribut itemid peut uniquement être défini sur les éléments qui ont un attribut itemscope et un attribut itemtype. De plus, un itemid ne peut pas être défini sur des éléments dont l&#39;attribut itemscope possède un attribut itemtype qui définit un vocabulaire qui ne prend pas en charge les identifiants globaux tels que défini dans la spécification du vocabulaire."><code>itemid</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/itemprop" title="L&#39;attribut universel itemprop est utilisé afin d&#39;ajouter des propriétés à un objet. C&#39;est un attribut universel et chaque élément HTML peut donc avoir un attribut itemprop qui permettra de former un couple de nom (la valeur de l&#39;attribut) et de valeur (la valeur de l&#39;élément). Chacune de ces paires constitue une propriété et un groupe de propriété forme un objet (item). Les valeurs des propriétés sont généralement des chaînes de caractères ou des URL et peuvent être associées à de nombreux éléments comme &lt;audio&gt;, &lt;embed&gt;, &lt;iframe&gt;, &lt;img&gt;, &lt;link&gt;, &lt;object&gt;, &lt;source&gt; , &lt;track&gt; et &lt;video&gt;."><code>itemprop</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/itemref" title="L&#39;attribut universel itemref permet d&#39;associer des propriétés à un objet via itemscope lorsque l&#39;élement courant n&#39;est pas un élément descendant. itemref fournit une liste d&#39;identifiants d&#39;éléments (à ne pas confondre avec itemid) dont des propriétés sont définies plus loin dans le document."><code>itemref</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/itemscope" title="L&#39;attribut universel itemscope fonctionne généralement avec l&#39;attribut itemtype afin d&#39; indiquer qu&#39;un bloc HTML contient un objet donné. itemscope crée l&#39;objet et définit la portée de l&#39;itemtype associé. Il est possible d&#39;associer un attribut itemscope à n&#39;importe quel élément HTML."><code>itemscope</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/itemtype" title="L&#39;attribut universel itemtype définit l&#39;URL du vocabulaire qui sera utilisé pour définir les propriétés des objets dans la structure de données. itemscope est utilisé afin de définir la portée, dans le document, où le vocabulaire défini sera actif."><code>itemtype</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/lang" title="L&#39;attribut universel lang permet de définir la langue utilisée pour l&#39;élément. Pour les éléments non-éditables c&#39;est la langue dans laquelle ils sont écrits et, pour les éléments éditables, c&#39;est la langue dans lequel ils seront écrits. La valeur de cet attribut est une balise dont le format est défini par le document de l&#39;IETF : Les balises d&#39;identification de langues (BCP47). Si cette balise est la chaîne vide, la langue sera définie comme inconue. Si la balise de langue n&#39;est pas valide selon BCP47, la langue sera définie comme invalide."><code>lang</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/slot" title="L&#39;attribut HTML universel slot permet d&#39;affecter un créneau d&#39;un shadow DOM à un élément. Un élément avec un attribut slot est affecté au créneau créé par l&#39;élément &lt;slot&gt; dont la valeur de l&#39;attribut name correspond à celle de l&#39;attribut slot."><code>slot</code></a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/spellcheck" title="L&#39;attribut universel spellcheck est un attribut à valeur contrainte qui définit si l&#39;orthographe du contenu de l&#39;élément doit être vérifiée."><code>spellcheck</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/style" title="L&#39;attribut universel style contient des déclarations CSS afin de mettre en forme l&#39;élément. Attention, il est recommandé de définir les règles de mise en forme dans un ou plusieurs fichiers séparés. Cet attribut, ainsi que l&#39;élément &lt;style&gt; ont simplement pour but de permettre une mise en forme rapide, notamment pour tester."><code>style</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/tabindex" title="L&#39;attribut universel tabindex est un entier indiquant si l&#39;élément peut capturer le focus et si c&#39;est le cas, dans quel ordre il le capture lors de la navigation au clavier (généralement à l&#39;aide de la touche Tab). Si plusieurs éléments partagent la même valeur d&#39;attribut tabindex, leur ordre sera calculé en fonction de leur position dans le document."><code>tabindex</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/title" title="L&#39;attribut universel title contient un texte d&#39;information relatif à l&#39;élément auquel il est rattaché."><code>title</code></a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/translate" title="L&#39;attribut universel translate est un attribut à valeur contrainte qui peut être utilisé afin d&#39;indiquer si les valeurs d&#39;attribut d&#39;un élément et si les valeurs de ses nœuds Text descendants doivent être traduits lorsque la page est localisée ou s&#39;il faut les laisser inchangés. Les valeurs autorisées pour cet attribut sont :"><code>translate</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="Cette API n&#39;a pas été standardisée."><i class="icon-warning-sign"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/x-ms-acceleratorkey" title="La propriété x-ms-acceleratorkey fournit une méthode pour déclarer si une touche d&#39;accélération a été affectée à un élément."><code>x-ms-acceleratorkey</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="Cette API n&#39;a pas été standardisée."><i class="icon-warning-sign"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs_universels/x-ms-format-detection" title="La propriété x-ms-format-detection détermine si le format de la donnée dans le contenu est détectée automatiquement et, lorsqu&#39;elle est trouvée, est convertie en un lien sur lequel on peut cliqué."><code>x-ms-format-detection</code></a></li></ol>
+    </details>
+  </li>
+  <li class="toggle">
+    <details open="">
+      <summary><code>&lt;input&gt;</code> types</summary>
+      <ol><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/button" title="Les éléments &lt;input&gt; de type &quot;button&quot; sont affichés comme des boutons poussoirs qui peuvent être programmés afin de contrôler des fonctionnalités de la page via un gestionnaire d&#39;évènement (la plupart du temps pour l&#39;évènement click)."><code>&lt;input type ="button"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/checkbox" title="Les éléments &lt;input&gt; de type checkbox sont affichés sous la forme de boîtes à cocher qui sont cochées lorsqu&#39;elles sont activées. Elle permettent de sélectionner une ou plusieurs valeurs dans un formulaire."><code>&lt;input type="checkbox"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/color" title="Les éléments &lt;input&gt; de type &quot;color&quot; permettent de sélectionner une couleur via une interface (un sélecteur de couleur) ou en saissant le code hexadécimal de la couleur au format &quot;#rrggbb&quot;. Ce format de valeur peut être utilisé en CSS."><code>&lt;input type="color"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/date" title="Les éléments &lt;input&gt; dont l&#39;attribut type vaut date permettent de créer des champs permettant de saisir des dates (composées d&#39;une année, d&#39;un mois et d&#39;un jour mais pas d&#39;une heure , cf. time)."><code>&lt;input type="date"&gt;</code></a></li><li><span class="sidebar-icon"><span class="icon-only-inline" title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/datetime" title="L&#39;élément HTML &lt;input type=&quot;datetime&quot;&gt; représentait un contrôle permettant de saisir une date, une heure (avec heures, minutes, secondes et fractions de seconde) ainsi qu&#39;un fuseau horaire. Cette fonctionnalité a été retirée de la spécification HTML WHATWG et n&#39;est plus prise en charge par les navigateurs."><code>&lt;input type="datetime"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/datetime-local" title="Les éléments &lt;input&gt; dont l&#39;attribut type vaut &quot;datetime-local&quot; permettent de créer des champs destinés à saisir simplement une date (définie par une année, un mois, et un jour) et une heure (définie par une heure et une minute). Il n&#39;y a pas de secondes dans ce contrôle."><code>&lt;input type="datetime-local"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/email" title="Les éléments &lt;input&gt; dont l&#39;attribut type vaut &quot;email&quot; permettent à un utilisateur de saisir et d&#39;éditer une adresse mail ou, si l&#39;attribut multiple est indiqué, une liste d&#39;adresses mail. La valeur saisie est automatiquement validée afin de vérifier que le champ est vide ou que l&#39;adresse (ou la liste d&#39;adresses) est correcte."><code>&lt;input type="email"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/file" title="Les éléments &lt;input&gt; dont l&#39;attribut type vaut &quot;file&quot; permettent à un utilisateur de sélectionner un ou plusieurs fichiers depuis leur appareil et de les uploader vers un serveur via un formulaire ou grâce à du code JavaScript via l&#39;API File."><code>&lt;input type="file"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/hidden" title="Les éléments &lt;input&gt; de type &quot;hidden&quot; permettent aux développeurs web d&#39;inclure des données qui ne peuvent pas être vues ou modifiées lorsque le formulaire est envoyé. Cela permet par exemple d&#39;envoyer l&#39;identifiant d&#39;une commande ou un jeton de sécurité unique. Les champs de ce type sont invisibles sur la page."><code>&lt;input type="hidden"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/image" title="Les éléments &lt;input&gt; dont l&#39;attribut type vaut &quot;image&quot; sont utilisés afin de créer des boutons graphiques pour l&#39;envoi de formulaire. Autrement dit, le bouton d&#39;envoi aura la forme d&#39;une image plutôt que de contenir un texte."><code>&lt;input type="image"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/month" title="Les éléments &lt;input&gt; dont l&#39;attribut type vaut &quot;month&quot; permettent de créer des contrôles où l&#39;utilisateur peut saisir un mois et année. La valeur associée à un tel élément suit le format &quot;YYYY-MM&quot;, où YYYY représente l&#39;année sur quatre chiffre et  MM le mois sur deux chiffres."><code>&lt;input type="month"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/number" title="Les éléments &lt;input&gt; dont l&#39;attribut type vaut number permettent à un utilisateur de saisir des nombres dans un formulaires. De tels contrôles incluent des mécanismes de validation natifs afin de rejeter les valeurs non-numériques."><code>&lt;input type="number"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/password" title="Les éléments &lt;input&gt; de type &quot;password&quot; permettent à utilisateur de saisir un mot de passe sans que celui-ci ne soit lisible à l&#39;écran. Un tel élément se présente comme un contrôle de saisie de texte sur une ligne et dans lequel chaque caractère est remplacé par un symbole (un astérisque (&quot;*&quot;) ou un point (&quot;•&quot;)) afin que le texte saisi ne puisse être lu. Le caractère utilisé pour obfusquer dépend de l&#39;agent utilisateur (du navigateur) et du système d&#39;exploitation utilisé."><code>&lt;input type="password"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/radio" title="Le code source de cet exemple interactif est disponible dans un dépôt GitHub. Si vous souhaitez contribuez à ces exemples, n&#39;hésitez pas à cloner https://github.com/mdn/interactive-examples et à envoyer une pull request !"><code>&lt;input type="radio"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/range" title="Les éléments &lt;input&gt; dont l&#39;attribut type vaut &quot;range&quot; permettent à l&#39;utilisateur d&#39;indiquer une valeur numérique comprise entre deux bornes. La valeur précise n&#39;est pas considérée comme importante. Ces éléments sont généralement représenté avec un curseur sur une ligne ou comme un bouton de potentiel. Ce genre de widget n&#39;étant pas précis, ce type ne devrait pas être utilisé lorsque la valeur exacte fournie par l&#39;utilisateur est importante."><code>&lt;input type="range"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/reset" title="Les éléments &lt;input&gt; de type &quot;reset&quot; sont affichés sous la forme de boutons permettant de réiniatiliser l&#39;ensemble des champs du formulaire avec leurs valeurs initiales."><code>&lt;input type="reset"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/search" title="Les éléments &lt;input&gt; dont l&#39;attribut type vaut &quot;search&quot; permettent à un utilisateur de saisir des termes de recherche. "><code>&lt;input type="search"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/submit" title="Les éléments &lt;input&gt; dont l&#39;attribut type vaut &quot;submit&quot; sont affichés comme des boutons permettant d&#39;envoyer les données d&#39;un formulaire. Cliquer sur un tel bouton déclenchera l&#39;envoi des données du formulaire vers le serveur."><code>&lt;input type="submit"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/tel" title="Les éléments &lt;input&gt; dont l&#39;attribut type vaut &quot;tel&quot; permettent à un utilisateur de saisir un numéro de téléphone. Contrairement aux contrôles utilisés pour &lt;input type=&quot;email&quot;&gt; et &lt;input type=&quot;url&quot;&gt; , la valeur saisie n&#39;est pas automatiquement validée selon un format donné car les formats des numéros de téléphone varient à travers le monde."><code>&lt;input type="tel"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/text" title="Les éléments &lt;input&gt; dont l&#39;attribut type vaut &quot;text&quot; permettent de créer des champs de saisie avec du texte sur une seule ligne."><code>&lt;input type="text"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/time" title="Les éléments &lt;input&gt; dont l&#39;attribut type vaut time permettent de créer des contrôles où l&#39;utilisateur peut saisir une heure (avec des minutes et éventuellement des secondes)."><code>&lt;input type="time"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/url" title="Les éléments &lt;input&gt; dont l&#39;attribut type vaut &quot;url&quot; sont employées afin de permettre à un utilisateur de saisir ou d&#39;éditer une URL."><code>&lt;input type="url"&gt;</code></a></li><li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/week" title="Les éléments &lt;input&gt; dont l&#39;attribut type vaut week permettent de créer des champs de saisie où l&#39;on peut saisir une année et le numéro de la semaine pendant cette année (allant de 1 à 52 ou 53, suivant la norme ISO 8601)."><code>&lt;input type="week"&gt;</code></a></li></ol>
+    </details>
+  </li>
+  <li><strong><a href="https://developer.mozilla.org/fr/docs/MDN">Documentation&nbsp;:</a></strong></li>
+  <li class="toggle">
+    <details>
+      <summary>Listes utiles</summary>
+      <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Index">Index de toutes les pages</a></li>
+      <li><a href="https://developer.mozilla.org/fr/docs/tag/HTML">Pages étiquetées "HTML"</a></li>
+    </details>
+  </li>
+  <li class="toggle">
+    <details>
+      <summary>Contribuer</summary>
+      <ol>
+        <li><a href="https://developer.mozilla.org/fr/docs/MDN/Doc_status/HTML">Statut de la documentation HTML</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/MDN">Le projet MDN</a></li>
+      </ol>
+    </details>
+  </li>
+ </ol>
+
+  </div>
+                
+
+                <!-- approvals -->
+                
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div> <!-- ends "main-content" -->
+
+    
+      <div class="newsletter-box">
+        <div class="newsletter">
+    <form id="newsletterForm" class="newsletter-form nodisable" name="newsletter-form" action="https://www.mozilla.org/en-US/newsletter/" method="post">
+        <div class="newsletter-head">
+            <h2 class="newsletter-teaser">Recevez le meilleur du développement web</h2>
+            <p class="newsletter-description">Recevez le meilleur de MDN, directement dans votre boîte de réception.</p>
+            
+            <p class="newsletter-lang">Cette lettre d'information est uniquement disponible en anglais pour l'instant.</p>
+            
+        </div>
+
+        <div class="newsletter-fields">
+            <input type="hidden" id="fmt" name="fmt" value="H">
+            <input type="hidden" id="newsletterNewslettersInput" name="newsletters" value="app-dev">
+            <div id="newsletterErrors" class="newsletter-errors"></div>
+
+            <div id="newsletterEmail" class="form-group newsletter-group-email">
+                <label for="newsletterEmailInput" class="form-label offscreen">Adresse électronique</label>
+                <input type="email" id="newsletterEmailInput" name="email" class="form-input newsletter-input-email" required="" placeholder="adresse@example.com" size="30">
+            </div>
+
+            <div id="newsletterPrivacy" class="form-group form-group-agree newsletter-group-privacy hidden">
+                <input type="checkbox" id="newsletterPrivacyInput" name="privacy" required="">
+                <label for="newsletterPrivacyInput">
+                J’accepte que Mozilla utilise mes informations conformément à cette <a href="https://www.mozilla.org/privacy/">politique de confidentialité</a>.
+                </label>
+            </div>
+            <div id="newsletterSubmit" class="newsletter-group-submit">
+                <button id="newsletter-submit" type="submit" class="button neutral newsletter-submit">
+                    S'inscrire maintenant<svg class="icon icon-arrow" xmlns="http://www.w3.org/2000/svg" width="23" height="28" viewBox="0 0 23 28" aria-hidden="true">
+    <path d="M23 15a2.01 2.01 0 0 1-.578 1.422L12.25 26.594c-.375.359-.891.578-1.422.578s-1.031-.219-1.406-.578L8.25 25.422c-.375-.375-.594-.891-.594-1.422s.219-1.047.594-1.422L12.828 18h-11C.703 18 0 17.062 0 16v-2c0-1.062.703-2 1.828-2h11L8.25 7.406a1.96 1.96 0 0 1 0-2.812l1.172-1.172c.375-.375.875-.594 1.406-.594s1.047.219 1.422.594l10.172 10.172c.375.359.578.875.578 1.406z"></path>
+</svg>
+                </button>
+            </div>
+        </div>
+    </form>
+    <div id="newsletterThanks" class="newsletter-thanks hidden">
+        <h2>Merci&nbsp;! Veuillez vérifier votre boîte de réception afin de confirmer votre inscription.</h2>
+        <p>Si vous n'avez pas déjà confirmé d'inscription à une lettre d'information Mozilla, vous devrez valider cette inscription. Veuillez vérifier votre boîte de réception, éventuellement vos messages indésirables, pour consulter le message que nous vous avons envoyé.
+        </p>
+    </div>
+    <button id="newsletterHide" type="button" class="only-icon newsletter-hide">
+        <span>Masquer l'inscription à la lettre d'information</span>
+        <svg class="icon icon-close" xmlns="http://www.w3.org/2000/svg" width="22" height="28" viewBox="0 0 22 28" aria-hidden="true"><path d="M20.281 20.656c0 .391-.156.781-.438 1.062l-2.125 2.125c-.281.281-.672.438-1.062.438s-.781-.156-1.062-.438L11 19.249l-4.594 4.594c-.281.281-.672.438-1.062.438s-.781-.156-1.062-.438l-2.125-2.125c-.281-.281-.438-.672-.438-1.062s.156-.781.438-1.062L6.751 15l-4.594-4.594c-.281-.281-.438-.672-.438-1.062s.156-.781.438-1.062l2.125-2.125c.281-.281.672-.438 1.062-.438s.781.156 1.062.438L11 10.751l4.594-4.594c.281-.281.672-.438 1.062-.438s.781.156 1.062.438l2.125 2.125c.281.281.438.672.438 1.062s-.156.781-.438 1.062L15.249 15l4.594 4.594c.281.281.438.672.438 1.062z"></path></svg>
+    </button>
+</div>
+      </div>
+    
+
+  <menu type="context" id="edit-history-menu">
+    <menuitem data-action="/fr/docs/Web/HTML$edit" label="Modifier la page"></menuitem>
+    <menuitem data-action="/fr/docs/Web/HTML$history" label="Voir l&#39;historique de la page"></menuitem>
+  </menu>
+
+      </div>
+  </main>
+
+  <!-- Footer -->
+    <footer id="nav-footer" class="nav-footer">
+      <div class="center">
+          <a href="https://developer.mozilla.org/fr/" class="nav-footer-logo">Documentation du Web - MDN</a>
+<div class="footer-group footer-group-mdn">
+  <h2 class="footer-title">MDN</h2>
+  <ul class="footer-list">
+    <li><a href="https://developer.mozilla.org/fr/docs/Web">Technologies web</a></li>
+    <li><a href="https://developer.mozilla.org/fr/docs/Learn">Apprendre le développement web</a></li>
+    <li><a href="https://developer.mozilla.org/docs/MDN/About">À propos de MDN</a></li>
+    <li><a href="https://developer.mozilla.org/fr/docs/MDN/Feedback">Votre avis</a></li>
+    <li class="footer-social">
+        <a href="https://twitter.com/mozdevnet">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-twitter" width="26" height="28" viewBox="0 0 26 28" aria-label="Twitter" role="img" focusable="false">
+    <title>Twitter</title>
+    <path d="M25.312 6.375a10.85 10.85 0 0 1-2.531 2.609c.016.219.016.438.016.656 0 6.672-5.078 14.359-14.359 14.359-2.859 0-5.516-.828-7.75-2.266.406.047.797.063 1.219.063 2.359 0 4.531-.797 6.266-2.156a5.056 5.056 0 0 1-4.719-3.5c.313.047.625.078.953.078.453 0 .906-.063 1.328-.172a5.048 5.048 0 0 1-4.047-4.953v-.063a5.093 5.093 0 0 0 2.281.641 5.044 5.044 0 0 1-2.25-4.203c0-.938.25-1.797.688-2.547a14.344 14.344 0 0 0 10.406 5.281 5.708 5.708 0 0 1-.125-1.156 5.045 5.045 0 0 1 5.047-5.047 5.03 5.03 0 0 1 3.687 1.594 9.943 9.943 0 0 0 3.203-1.219 5.032 5.032 0 0 1-2.219 2.781c1.016-.109 2-.391 2.906-.781z"></path>
+</svg>
+        </a>
+    </li>
+    <li class="footer-social">
+        <a href="https://github.com/mdn/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-github" width="24" height="28" viewBox="0 0 24 28" aria-label="GitHub" role="img" focusable="false">
+    <title>GitHub</title>
+    <path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-.609.109-.828-.266-.828-.578 0-.391.016-1.687.016-3.297 0-1.125-.375-1.844-.812-2.219 2.672-.297 5.484-1.313 5.484-5.922 0-1.313-.469-2.375-1.234-3.219.125-.313.531-1.531-.125-3.187-1-.313-3.297 1.234-3.297 1.234a11.28 11.28 0 0 0-6 0S6.704 6.656 5.704 6.969c-.656 1.656-.25 2.875-.125 3.187-.766.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-.344.313-.656.844-.766 1.609-.688.313-2.438.844-3.484-1-.656-1.141-1.844-1.234-1.844-1.234-1.172-.016-.078.734-.078.734.781.359 1.328 1.75 1.328 1.75.703 2.141 4.047 1.422 4.047 1.422 0 1 .016 1.937.016 2.234 0 .313-.219.688-.828.578C3.439 23.796.002 19.296.002 13.999c0-6.625 5.375-12 12-12zM4.547 19.234c.031-.063-.016-.141-.109-.187-.094-.031-.172-.016-.203.031-.031.063.016.141.109.187.078.047.172.031.203-.031zm.484.532c.063-.047.047-.156-.031-.25-.078-.078-.187-.109-.25-.047-.063.047-.047.156.031.25.078.078.187.109.25.047zm.469.703c.078-.063.078-.187 0-.297-.063-.109-.187-.156-.266-.094-.078.047-.078.172 0 .281s.203.156.266.109zm.656.656c.063-.063.031-.203-.063-.297-.109-.109-.25-.125-.313-.047-.078.063-.047.203.063.297.109.109.25.125.313.047zm.891.391c.031-.094-.063-.203-.203-.25-.125-.031-.266.016-.297.109s.063.203.203.234c.125.047.266 0 .297-.094zm.984.078c0-.109-.125-.187-.266-.172-.141 0-.25.078-.25.172 0 .109.109.187.266.172.141 0 .25-.078.25-.172zm.906-.156c-.016-.094-.141-.156-.281-.141-.141.031-.234.125-.219.234.016.094.141.156.281.125s.234-.125.219-.219z"></path>
+</svg>
+        </a>
+    </li>
+  </ul>
+</div>
+
+          <a href="https://mozilla.org/" class="nav-footer-mozilla">Mozilla</a>
+<div class="footer-group footer-group-mozilla">
+  <h2 class="footer-title">Mozilla</h2>
+  <ul class="footer-list">
+    <li><a href="https://www.mozilla.org/about/">À propos</a></li>
+    <li><a href="https://www.mozilla.org/contact/">Nous contacter</a></li>
+    <li><a href="https://www.mozilla.org/firefox/?utm_source=developer.mozilla.org&amp;utm_campaign=footer&amp;utm_medium=referral">Firefox</a></li>
+    <li class="footer-social">
+        <a href="https://twitter.com/mozilla">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-twitter" width="26" height="28" viewBox="0 0 26 28" aria-label="Twitter" role="img" focusable="false">
+    <title>Twitter</title>
+    <path d="M25.312 6.375a10.85 10.85 0 0 1-2.531 2.609c.016.219.016.438.016.656 0 6.672-5.078 14.359-14.359 14.359-2.859 0-5.516-.828-7.75-2.266.406.047.797.063 1.219.063 2.359 0 4.531-.797 6.266-2.156a5.056 5.056 0 0 1-4.719-3.5c.313.047.625.078.953.078.453 0 .906-.063 1.328-.172a5.048 5.048 0 0 1-4.047-4.953v-.063a5.093 5.093 0 0 0 2.281.641 5.044 5.044 0 0 1-2.25-4.203c0-.938.25-1.797.688-2.547a14.344 14.344 0 0 0 10.406 5.281 5.708 5.708 0 0 1-.125-1.156 5.045 5.045 0 0 1 5.047-5.047 5.03 5.03 0 0 1 3.687 1.594 9.943 9.943 0 0 0 3.203-1.219 5.032 5.032 0 0 1-2.219 2.781c1.016-.109 2-.391 2.906-.781z"></path>
+</svg>
+        </a>
+    </li>
+    <li class="footer-social">
+        <a href="https://www.facebook.com/mozilla">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-facebook" width="16" height="28" viewBox="0 0 16 28" aria-label="Facebook" role="img" focusable="false">
+    <title>Facebook</title>
+    <path d="M14.984.187v4.125h-2.453c-1.922 0-2.281.922-2.281 2.25v2.953h4.578l-.609 4.625H10.25v11.859H5.469V14.14H1.485V9.515h3.984V6.109C5.469 2.156 7.891 0 11.422 0c1.687 0 3.141.125 3.563.187z"></path>
+</svg>
+        </a>
+    </li>
+    <li class="footer-social">
+        <a href="https://www.instagram.com/mozillagram/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-instagram" width="24" height="28" viewBox="0 0 24 28" aria-label="Instagram" role="img" focusable="false">
+    <title>Instagram</title>
+    <path d="M16 14c0-2.203-1.797-4-4-4s-4 1.797-4 4 1.797 4 4 4 4-1.797 4-4zm2.156 0c0 3.406-2.75 6.156-6.156 6.156S5.844 17.406 5.844 14 8.594 7.844 12 7.844s6.156 2.75 6.156 6.156zm1.688-6.406c0 .797-.641 1.437-1.437 1.437S16.97 8.39 16.97 7.594s.641-1.437 1.437-1.437 1.437.641 1.437 1.437zM12 4.156c-1.75 0-5.5-.141-7.078.484-.547.219-.953.484-1.375.906s-.688.828-.906 1.375c-.625 1.578-.484 5.328-.484 7.078s-.141 5.5.484 7.078c.219.547.484.953.906 1.375s.828.688 1.375.906c1.578.625 5.328.484 7.078.484s5.5.141 7.078-.484c.547-.219.953-.484 1.375-.906s.688-.828.906-1.375c.625-1.578.484-5.328.484-7.078s.141-5.5-.484-7.078c-.219-.547-.484-.953-.906-1.375s-.828-.688-1.375-.906C17.5 4.015 13.75 4.156 12 4.156zM24 14c0 1.656.016 3.297-.078 4.953-.094 1.922-.531 3.625-1.937 5.031s-3.109 1.844-5.031 1.937c-1.656.094-3.297.078-4.953.078s-3.297.016-4.953-.078c-1.922-.094-3.625-.531-5.031-1.937S.173 20.875.08 18.953C-.014 17.297.002 15.656.002 14s-.016-3.297.078-4.953c.094-1.922.531-3.625 1.937-5.031s3.109-1.844 5.031-1.937c1.656-.094 3.297-.078 4.953-.078s3.297-.016 4.953.078c1.922.094 3.625.531 5.031 1.937s1.844 3.109 1.937 5.031C24.016 10.703 24 12.344 24 14z"></path>
+</svg>
+        </a>
+    </li>
+  </ul>
+</div>
+
+          
+  
+    <form class="languages go" method="get" action="https://developer.mozilla.org/fr/docs/Web">
+      <label for="language">Autres langues&nbsp;:</label>
+      <select id="language" class="wiki-l10n" name="next" dir="ltr">
+        <option title="Français" data-locale="fr" value="/fr/docs/Web/HTML" selected="">
+          Français (fr)
+        </option>
+        
+          <option title="Anglais américain" data-locale="fr" value="/en-US/docs/Web/HTML">
+            English (US) (en-US)
+          </option>
+          <option title="Arabe" data-locale="fr" value="/ar/docs/Web/HTML_%D9%84%D8%BA%D8%A9_%D8%AA%D8%B1%D9%85%D9%8A%D8%B2_%D8%A7%D9%84%D9%86%D8%B5_%D8%A7%D9%84%D9%81%D8%A7%D8%A6%D9%82">
+            عربي (ar)
+          </option>
+          <option title="Azéri" data-locale="fr" value="/az/docs/Web/HTML">
+            Azərbaycanca (az)
+          </option>
+          <option title="Bulgare" data-locale="fr" value="/bg/docs/Web/HTML">
+            Български (bg)
+          </option>
+          <option title="Bengali (du Bangladesh)" data-locale="fr" value="/bn-BD/docs/Web/HTML">
+            বাংলা (বাংলাদেশ) (bn-BD)
+          </option>
+          <option title="Bengali (d&#39;Inde)" data-locale="fr" value="/bn-IN/docs/Web/HTML">
+            বাংলা (ভারত) (bn-IN)
+          </option>
+          <option title="Catalan" data-locale="fr" value="/ca/docs/Web/HTML">
+            Català (ca)
+          </option>
+          <option title="Tchèque" data-locale="fr" value="/cs/docs/Web/HTML">
+            Čeština (cs)
+          </option>
+          <option title="Allemand" data-locale="fr" value="/de/docs/Web/HTML">
+            Deutsch (de)
+          </option>
+          <option title="Espagnol" data-locale="fr" value="/es/docs/Web/HTML">
+            Español (es)
+          </option>
+          <option title="Perse" data-locale="fr" value="/fa/docs/Web/HTML">
+            فارسی (fa)
+          </option>
+          <option title="Finnois" data-locale="fr" value="/fi/docs/Web/HTML">
+            suomi (fi)
+          </option>
+          <option title="Hébreu" data-locale="fr" value="/he/docs/Web/Hypertext_Markup_Language">
+            עברית (he)
+          </option>
+          <option title="Hindi (d&#39;Inde)" data-locale="fr" value="/hi-IN/docs/Web/HTML">
+            हिन्दी (भारत) (hi-IN)
+          </option>
+          <option title="Croate" data-locale="fr" value="/hr/docs/Web/HTML">
+            Hrvatski (hr)
+          </option>
+          <option title="Indonésien" data-locale="fr" value="/id/docs/Web/HTML">
+            Bahasa Indonesia (id)
+          </option>
+          <option title="Italien" data-locale="fr" value="/it/docs/Web/HTML">
+            Italiano (it)
+          </option>
+          <option title="Japonais" data-locale="fr" value="/ja/docs/Web/HTML">
+            日本語 (ja)
+          </option>
+          <option title="Géorgien" data-locale="fr" value="/ka/docs/Web/HTML">
+            ქართული (ka)
+          </option>
+          <option title="Kabyle" data-locale="fr" value="/kab/docs/Web/HTML">
+            Taqbaylit (kab)
+          </option>
+          <option title="Coréen" data-locale="fr" value="/ko/docs/Web/HTML">
+            한국어 (ko)
+          </option>
+          <option title="Malayalam" data-locale="fr" value="/ml/docs/Web/HTML">
+            മലയാളം (ml)
+          </option>
+          <option title="Malais" data-locale="fr" value="/ms/docs/Web/HTML">
+            Melayu (ms)
+          </option>
+          <option title="Birman" data-locale="fr" value="/my/docs/Web/HTML">
+            မြန်မာဘာသာ (my)
+          </option>
+          <option title="Néerlandais" data-locale="fr" value="/nl/docs/Web/HTML">
+            Nederlands (nl)
+          </option>
+          <option title="Polonais" data-locale="fr" value="/pl/docs/Web/HTML(PL)">
+            Polski (pl)
+          </option>
+          <option title="Portugais brésilien" data-locale="fr" value="/pt-BR/docs/Web/HTML">
+            Português (do&nbsp;Brasil) (pt-BR)
+          </option>
+          <option title="Portugais" data-locale="fr" value="/pt-PT/docs/Web/HTML">
+            Português (Europeu) (pt-PT)
+          </option>
+          <option title="Roumain" data-locale="fr" value="/ro/docs/Web/HTML">
+            Română (ro)
+          </option>
+          <option title="Russe" data-locale="fr" value="/ru/docs/Web/HTML">
+            Русский (ru)
+          </option>
+          <option title="Albanais" data-locale="fr" value="/sq/docs/Web/HTML">
+            Shqip (sq)
+          </option>
+          <option title="Serbe" data-locale="fr" value="/sr/docs/Web/HTML">
+            Српски (sr)
+          </option>
+          <option title="Suédois" data-locale="fr" value="/sv-SE/docs/Web/HTML">
+            Svenska (sv-SE)
+          </option>
+          <option title="Tamoul" data-locale="fr" value="/ta/docs/Web/HTML">
+            தமிழ் (ta)
+          </option>
+          <option title="Thaï" data-locale="fr" value="/th/docs/Web/HTML">
+            ไทย (th)
+          </option>
+          <option title="Ukrainien" data-locale="fr" value="/uk/docs/Web/HTML">
+            Українська (uk)
+          </option>
+          <option title="Vietnamien" data-locale="fr" value="/vi/docs/Web/HTML_vi">
+            Tiếng Việt (vi)
+          </option>
+          <option title="Chinois (simplifié)" data-locale="fr" value="/zh-CN/docs/Web/HTML">
+            中文 (简体) (zh-CN)
+          </option>
+          <option title="Chinois (traditionnel)" data-locale="fr" value="/zh-TW/docs/Web/HTML">
+            正體中文 (繁體) (zh-TW)
+          </option>
+      </select>
+      <noscript><button type="submit">OK</button></noscript>
+    </form>
+  
+
+
+          
+            <ul class="footer-tos">
+              <li><a href="https://www.mozilla.org/about/legal/terms/mozilla">Conditions d'utilisation</a></li>
+              <li><a href="https://www.mozilla.org/privacy/websites/">Confidentialité</a></li>
+              <li><a href="https://www.mozilla.org/privacy/websites/#cookies">Cookies</a></li>
+            </ul>
+
+            <div id="license" class="contentinfo">
+              <p>© 2005-2019 Mozilla et contributeurs individuels.</p> <p>Tous les contenus sont disponibles sous <a href="https://developer.mozilla.org/en-US/docs/MDN/About#Copyrights_and_licenses">ces licences</a>.</p>
+            </div>
+          
+      </div>
+    </footer> 
+
+  <!-- site js -->
+  
+    
+    <!--[if lte IE 8]><script type="text/javascript" src="https://developer.mozilla.org/static/build/js/selectivizr.8bb9e662e963.js" charset="utf-8"></script><![endif]-->
+
+    
+    <script src="./HTML (HyperText Markup Language) _ MDN_files/javascript.d487cca8672b.js.téléchargement"></script>
+    <script type="text/javascript" src="./HTML (HyperText Markup Language) _ MDN_files/main.03d406ff5fc8.js.téléchargement" charset="utf-8"></script>
+    <script>
+    if (window.mdn && mdn.analytics) mdn.analytics.trackOutboundLinks();
+  </script>
+    
+  
+
+    <script async="" type="text/javascript" src="./HTML (HyperText Markup Language) _ MDN_files/wiki.2780b51fe209.js.téléchargement" charset="utf-8"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+    <script async="" type="text/javascript" src="./HTML (HyperText Markup Language) _ MDN_files/newsletter.a85c5c2892e5.js.téléchargement" charset="utf-8"></script>
+  
+
+
+
+</body></html>

@@ -1,0 +1,33 @@
+body {
+	color: white;
+	background-color: black;
+	background-repeat: no-repeat;
+	text-shadow: -2px 0 0 rgba(0, 0, 0, 0.8), 
+             2px 0 0 rgba(0, 0, 0, 0.8),
+             0 -2px 0 rgba(0, 0, 0, 0.8),
+             0 2px 0 rgba(0, 0, 0, 0.8);
+	background-attachment : fixed;
+	background-position: center left 100px;
+}
+
+h1,h2,h3 {
+	color: limegreen;
+	text-decoration: underline;
+}
+
+a {
+        text-decoration: none;
+        color: green;
+        border: none;
+
+}
+
+a:hover {
+    text-decoration: underline;
+    color: pink;
+}
+
+.background {
+	position: absolute;
+	top: 100px;
+}
